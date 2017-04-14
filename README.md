@@ -1,4 +1,4 @@
-# The Way to RackHD Development
+# The Way to RackHD
 
-Introduce how to do RackHD development, including the toolchain, process, code analysis and how to write some  typical RackHD feature. 
+Help you understand RackHD and guide you how to contribute RackHD code.
 
