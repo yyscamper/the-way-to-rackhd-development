@@ -16,7 +16,7 @@ Please make sure following prerequiste is met before go ahead:
 
 ## Steps
 
-### 1- Install Node.js
+### 1. Install Node.js
 
 Now the core and most RackHD services are written in JavaScript and run in Node.js environment. So the first step you have to install the Node.js.
 
@@ -26,9 +26,13 @@ As for which Node.js version should I installed, I recommend you to check the Tr
 >
 > You can obtain the source code of TravisCI configuration from the `.travis.yml` file in each repository
 
+The click  the "Node.js: 4" for detail build log, you could see which exact version it installs:
+
+![](/assets/travis-ci-exact-version)
 
 
-To help you switch between different Node.js version, I recommend you install a Node.js Version Manager firstly, among  them, the `n` is a very simple one, click [https://github.com/tj/n](https://github.com/tj/n) for a detail introducation of `n.`
+
+Though Node.js 4.x is currently RackHD recommended one, but sometimes your task is to fix the issue on Node.js 6.x. So to help you easily switch between different Node.js version, I recommend you install a Node.js Version Manager firstly, among  them, the `n` is a very simple one, click [https://github.com/tj/n](https://github.com/tj/n) for a detail introducation of `n.`
 
 Install `n` with following command:
 
@@ -48,6 +52,22 @@ Check version by:
 $ node --version
 v4.8.2
 ```
+
+To switch another Node.js version, use following command:
+
+```bash
+n 6.1.0
+```
+
+### 2. Fork Repository
+
+Only a few people have write permission to RackHD official repositories, usually you only have read-only permission, if you want to contribute code into RackHD official repositority, you firstly need to fork it and then submit pull request to RackHD offical repository.
+
+> Even for those people who have write permisson to RackHD offical repositories, they should still avoid directly to write offical repositories. Fork repo and then submit pull request is always the right way.
+
+Click the "Fork" button in RackHD official repo:
+
+
 
 
 
