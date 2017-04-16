@@ -24,7 +24,30 @@ As for which Node.js version should I installed, I recommend you to check the Tr
 
 > RackHD tries to keep the pace with Node.js LTS release, so may be in near future, RackHD will switch to run with Node.js 6.x after all existing compatibility issues are resolved. Nevertheless, the TravisCI config will be updated accordingly, so you can always get the recommended Node.js version from TravisCI.
 >
-> You can obtain the source code of TravisCI configuration from the `.travis.yml` file in each repository.
+> You can obtain the source code of TravisCI configuration from the `.travis.yml` file in each repository
+
+
+
+To help you switch between different Node.js version, I recommend you install a Node.js Version Manager firstly, among  them, the `n` is a very simple one, click [https://github.com/tj/n](https://github.com/tj/n) for a detail introducation of `n.`
+
+Install `n` with following command:
+
+```bash
+curl -L https://git.io/n-install | bash
+```
+
+Then install Node.js 4.8.2:
+
+```bash
+n 4.8.2
+```
+
+Check version by:
+
+```bash
+$ node --version
+v4.8.2
+```
 
 
 
