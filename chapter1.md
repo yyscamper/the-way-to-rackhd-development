@@ -12,8 +12,9 @@ Please make sure following prerequiste is met before go ahead:
 
 2 - Git has been installed in Ubuntu
 
-3 - You already have a github account  
+3 - You already have a github account
 
+## Steps
 
 
 
