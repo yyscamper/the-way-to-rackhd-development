@@ -28,9 +28,7 @@ As for which Node.js version should I installed, I recommend you to check the Tr
 
 The click  the "Node.js: 4" for detail build log, you could see which exact version it installs:
 
-![](/assets/travis-ci-exact-version)
-
-
+![](/assets/travis-ci-exact-version.png)
 
 Though Node.js 4.x is currently RackHD recommended one, but sometimes your task is to fix the issue on Node.js 6.x. So to help you easily switch between different Node.js version, I recommend you install a Node.js Version Manager firstly, among  them, the `n` is a very simple one, click [https://github.com/tj/n](https://github.com/tj/n) for a detail introducation of `n.`
 
@@ -65,9 +63,5 @@ Only a few people have write permission to RackHD official repositories, usually
 
 > Even for those people who have write permisson to RackHD offical repositories, they should still avoid directly to write offical repositories. Fork repo and then submit pull request is always the right way.
 
-Click the "Fork" button in RackHD official repo:
-
-
-
-
+Click the "Fork" button in RackHD official repo:![](/assets/click-fork-button.png)Then you will see your forked repo:![](/assets/my-forked-repo.png)For the forked repo, you have full premission, you can modify it whatever you want \(even delete it!\) 
 
