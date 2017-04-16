@@ -18,5 +18,7 @@ Please make sure following prerequiste is met before go ahead:
 
 ### 1- Install Node.js
 
+Now the core and most RackHD services are written in JavaScript and run in Node.js environment. So the first step you have to install the Node.js
+
 
 
