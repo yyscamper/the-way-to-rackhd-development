@@ -16,5 +16,7 @@ Please make sure following prerequiste is met before go ahead:
 
 ## Steps
 
+### 1- Install Node.js
+
 
 
