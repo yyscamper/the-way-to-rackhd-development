@@ -1,8 +1,9 @@
 # Summary
 
 * [Introduction](README.md)
-* [Installation](chapter1.md)
+* [Outline](outline.md)
 * [Git Workflow](git-workflow.md)
+* [Installation](chapter1.md)
 * [Unit Testing](unit-testing.md)
   * spec/helper.js
   * mocha
