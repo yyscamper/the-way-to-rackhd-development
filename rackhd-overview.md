@@ -101,12 +101,13 @@ RackHD development is executed in SCRUM model, thus RackHD chooses the JIRA \([h
 
 * ### Slack
 
+RackHD setups some channels in Slack to provide instance communication between RackHD users and developers, usually you could get very quick response if you have any question. The widely used channle is `#rackhd`, if you prefer to talk with Chinese you could use channle `#rackhd-chinese`
 
+To join in Slack channle, You can get an invite by requesting one at [http://community.codedellemc.com](http://community.codedellemc.com/)
 
 * ### Google Group
 * ### Mailing List
-* 
-Give an overview introduction on RackHD, and draw a table or mind map to illustrate the full technical stack of RackHD. For each entry, give a general introduction, provide the useful link and recommended material.
+* Give an overview introduction on RackHD, and draw a table or mind map to illustrate the full technical stack of RackHD. For each entry, give a general introduction, provide the useful link and recommended material.
 
 **Goals:**
 
