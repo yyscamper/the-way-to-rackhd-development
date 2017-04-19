@@ -75,12 +75,15 @@ There are various kinds of public documentation can help you to understand RackH
 
 > This is the source code of readthedoc \([https://github.com/RackHD/docs](https://github.com/RackHD/docs)\) if you find any bug, you could submit pull request to fix it.
 
-* **Confluence **\([https://rackhd.atlassian.net/wiki/display/RAC1/RackHD\)](https://rackhd.atlassian.net/wiki/display/RAC1/RackHD)
-* **api doc**: [https://bintray.com/rackhd/docs/apidoc\#files](https://bintray.com/rackhd/docs/apidoc#files)
+* ### **Confluence**
 
-A reference manual for both RackHD APIs. This doc is auto updated if there is any change on APIs.
+The Confluence \([https://rackhd.atlassian.net/wiki/display/RAC1/RackHD\)](https://rackhd.atlassian.net/wiki/display/RAC1/RackHD) hosts the doc that doens't need to be kept sync with latest RackHD source code change, including the release notes, meeting minutes and others.
 
-* **task doc: **
+* ### **api doc**
+
+The api doc \([https://bintray.com/rackhd/docs/apidoc\#files](https://bintray.com/rackhd/docs/apidoc#files)\) is the reference manual for both RackHD APIs. This doc is auto updated if there is any change on APIs.
+
+* ### **task doc: **
 
 This is an automatically generated documentation for all RackHD built-in tasks, it helps you to understand and use the RackHD  tasks without touching the code.
 
