@@ -71,3 +71,109 @@ Only a few people have write permission to RackHD official repositories, usually
 
 Click the "Fork" button in RackHD official repo:![](/assets/click-fork-button.png)Then you will see your forked repo:![](/assets/my-forked-repo.png)For the forked repo, you have full premission, you can modify it whatever you want \(even delete it!\)
 
+### 3. Clone Source Code
+
+During the whole developement cycle, you need to frequently touch below 3 kinds of repositores:
+
+* **upstream**: point to the remote RackHD official repostiory.
+
+* **origin**: point to your forked remote repository.
+
+* **local**: your local copy of code. 
+
+You write code in `local` code and commit it into `local`, after everything is ready, you push your local code into `origin`, then open a pull request from `origin` into `upstream` and hopely your code change can be merged by RackHD official.
+
+Also if your `local` code is out-of-date, sometimes you need to sync up your code with `upstream`
+
+So while cloning the source code, setup the relationship of `upstream`, `origin` and `local` is also important, this brings convinence for your development.
+
+![](/assets/git-upstream-origin-local.png)
+
+Below is a shell script, which clones all core RackHD services and also setup the `upstream`:
+
+```bash
+# !/bin/bash
+
+# replace with your own github account
+github_account="yyscamper"
+
+mkdir -p ~/src
+
+for repo in $(echo "on-core on-tasks on-taskgraph on-http on-dhcp-proxy on-tftp on-syslog");do
+  # clone my forked repo and set origin to my forked repo
+  pushd ~/src
+  git clone https://github.com/${github_account}/$repo.git
+
+  # set upstream to RackHD official repo
+  popd && pushd ~/src/$repo
+  git remote add upstream https://github.com/RackHD/$repo.git
+
+  # sync up the latest change of upstream into origin
+  git fetch upstream && git rebase upstream/master
+
+  popd
+done
+```
+
+### 4. Install Dependency
+
+A typical Node.js project usually requires to install some 3rd party libraries via npm, this also works to RackHD.
+
+Meanwhile, there is also some depencency between different RackHD repositories. `on-core` is the common library that is depended by all other RackHD core services. `on-tasks` provices task definitions and job code for `on-taskgraph` and `on-http`.
+
+> The dependency between different repositories has brought a lot complex for development, CI testing, release and deploy. RackHD has realized this is a problem and is actively discussed how to remove or mitigate the dependency. One of the dominant solution is changing RackHD into modularity and then evolve to Micro Services architectures.
+
+Below tools is required before install dependencies:
+
+```bash
+$ sudo apt-get install -y g++ libkrb5-dev unzip
+```
+
+Before installing dependencies, I recommend you to change the npm prefix under the same folder with all RackHD source code, this will bring convience if you want to mount your source in another OS and run RackHD in that OS. This will be explained in the "Debugger" chapter.
+
+Using following command to change the npm prefix to `~/src/npm`:
+
+```bash
+$ mkdir -p ~/src/npm
+$ echo prefix=~/src/npm >> ~/.npmrc
+```
+
+All dependencies for a service is specified in its `package.json`, run `npm install` will fetch these packages from npm sever and placed them into `node_modules` folder.
+
+Since `on-core` is depended by another repo, the normal `npm install` will fetch a copy of `on-core` into `node_modules` folder. Assume we have a code change in `on-core`, to make it take effects for every repo, then we have to change the `on-core` copy for every repo. This is very very unacceptable for developer. So we look forward to a solution which change once for `on-core`, its change can be automatically applied to all other repos. The `npm link` is designed to resolve this problem.
+
+With `npm link`, the real source code of `on-core` is stored at the same folder of other repos. For other repos which depend on the `on-core`, the `npm link` will assue they are linked with the same `on-core.`
+
+Below is the shell script which installs dependencies for all repos and also build links between them:
+
+```bash
+#!/bin/bash
+
+cd ~/src/on-core
+npm install
+
+for repo in $(echo "on-tasks on-taskgraph on-http on-dhcp-proxy on-tftp on-syslog");do
+  pushd ~/src/$repo
+  npm install
+  npm link ../on-core
+done
+
+for repo in $(echo "on-taskgraph on-http");do
+  pushd ~/src/$repo
+  npm link ../on-tasks
+done
+
+```
+
+
+
+
+
+```bash
+
+
+
+```
+
+
+
