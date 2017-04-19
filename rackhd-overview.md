@@ -97,12 +97,15 @@ RackHD development is executed in SCRUM model, thus RackHD chooses the JIRA \([h
 * [**RackHD Initiatives \(RI\)**](https://rackhd.atlassian.net/secure/RapidBoard.jspa?rapidView=13): Record RackHD roadmap features.
 * RackHD Team Boards: There are multiple teams accross the world to work together on the RackHD project, each team has its own board, which records the team's working status. Usually each team picks up some stories from RAC or RI and then add into team's backlog.
 
-# Slack
+# Community
+
+* ### Slack
 
 
 
-
-
+* ### Google Group
+* ### Mailing List
+* 
 Give an overview introduction on RackHD, and draw a table or mind map to illustrate the full technical stack of RackHD. For each entry, give a general introduction, provide the useful link and recommended material.
 
 **Goals:**
