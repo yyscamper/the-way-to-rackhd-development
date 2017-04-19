@@ -1,9 +1,19 @@
 # Technology Stack
 
+* **JavaScript**
+
+All RackHD core services are written in JavaScript
+
+\(1\) [MDN JavaScript Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference) \([中文版](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference)\): JavaScript standard APIs manual
+
+\(2\) [Eloquent JavaScript](http://eloquentjavascript.net/)
+
+
+
 | Name | Introducation | Resources \(English\) |
 | :--- | :--- | :--- |
-| JavaScript | All RackHD core services are written in JavaScript | - [MDN JavaScript Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference) \([中文版](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference)\) - Eloquent JavaScript |
-|  |  |  |
+| JavaScript | All RackHD core services are written in JavaScript | -  |
+|  |  | -  |
 |  |  |  |
 |  |  |  |
 |  |  |  |
