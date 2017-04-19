@@ -106,7 +106,12 @@ RackHD setups some channels in Slack to provide instance communication between R
 To join in Slack channle, You can get an invite by requesting one at [http://community.codedellemc.com](http://community.codedellemc.com/)
 
 * ### Google Group
-* ### Mailing List
+
+Comparing with Slack, the google group is suitable for discussion about a specific topic. If you have a new feature design and want to collect other developer's review comment, you could create a topic in Google Group.
+
+You could visit the group page via [https://groups.google.com/d/forum/rackhd](https://groups.google.com/d/forum/rackhd)
+
+* ### 
 * Give an overview introduction on RackHD, and draw a table or mind map to illustrate the full technical stack of RackHD. For each entry, give a general introduction, provide the useful link and recommended material.
 
 **Goals:**
