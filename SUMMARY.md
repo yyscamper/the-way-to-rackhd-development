@@ -2,23 +2,43 @@
 
 * [Introduction](README.md)
 * [RackHD Overview](rackhd-overview.md)
-* [Installation](chapter1.md)
-* [Unit Testing](unit-testing.md)
+* [Setup Development Environment](chapter1.md)
+* [Typical Development Process](typical-development-process.md)
+* [Go Through RackHD APIs](go-through-rackhd-apis.md)
+* [Compose Workflow](compose-workflow.md)
+* [Recognize Hardware \(SKU Pack\)](recognize-hardware-sku-pack.md)
+* [Basic Knowledge](basic-knowledge.md)
+  * [JavaScript & Node.js](basic-knowledge/javascript-and-nodejs.md)
+  * [Lodash](basic-knowledge/lodash.md)
+  * [Promise](basic-knowledge/promise.md)
+  * [di \(Dependency Injection\)](basic-knowledge/di-dependency-injection.md)
+  * [BMC & IPMI & Redfish](basic-knowledge/bmc-and-ipmi.md)
+  * [SNMP](basic-knowledge/snmp.md)
+  * [MongoDB](basic-knowledge/mongodb.md)
+  * [RabbitMQ](basic-knowledge/rabbitmq.md)
+  * [PXE Boot](unit-testing/pxe-boot.md)
+* [Write a Simple Job](write-a-simple-job.md)
+* [Write a Linux Catalog Job](write-a-linux-catalog-job.md)
+* [Publish New Event](publish-new-event.md)
+* [Add New Param for OS Installation](add-new-param-for-os-installation.md)
+* [Write a New RackHD API](write-a-new-rackhd-api.md)
+* [RackHD Unit Test](unit-testing.md)
   * spec/helper.js
   * mocha
-* [Basic Knowledge](basic-knowledge.md)
-  * [di \(Dependency Injection\)](basic-knowledge/di-dependency-injection.md)
-  * [Promise](basic-knowledge/promise.md)
-* [Toolset](toolset.md)
-  * [pm2](toolset/pm2.md)
-  * [sniff.js](toolset/sniffjs.md)
-  * [setup\_iso.py](toolset/setupiso-py.md)
+  * sinon
+  * supertest
+* [Write FIT Test Case](write-fit-test-case.md)
 * [Debugging](debugging.md)
   * [Remote Debugging](debugging/remote-debugging.md)
+  * [Debug on Physical Stack](debugging/debug-on-physical-stack.md)
 * [Deep Dive into Source Code](deep-dive-into-source-code.md)
-  * [Compute Node Discovery](deep-dive-into-source-code/compute-node-discovery.md)
-  * [Catalog](deep-dive-into-source-code/catalog.md)
-  * [OBM Service](deep-dive-into-source-code/obm-service.md)
-  * [Poller](deep-dive-into-source-code/poller.md)
-  * [OS Boostrap](deep-dive-into-source-code/os-boostrap.md)
+  * How a Compute Node is Discovered?
+  * How to Power Control a Node?
+  * How Microkernel Communicates with RackHD?
+  * How on-http Talks with on-taskgraph?
+  * How RackHD Talks with Database?
+  * How an OS is Installed by RackHD?
+  * How the Poller is Created and Scheduled?
+  * How the Workflow is Registered and Scheduled?
+* [Technology Stack](technology-stack.md)
 
