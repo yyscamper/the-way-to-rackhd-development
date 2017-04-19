@@ -69,44 +69,22 @@ The RackHD homepage is hosted in github.io, the address is: [https://rackhd.gith
 
 There are various kinds of public documentation can help you to understand RackHD.
 
-* **readthedoc **\([http://rackhd.readthedocs.io/en/latest/index.html](http://rackhd.readthedocs.io/en/latest/index.html)\)
+* ### **readthedoc**
 
-`readthedoc` provides a lot of technical detail and user manual, and it is activly maintained by developers and nearly always reflect the latest RackHD design. This is most recommended doc for you to understand RackHD. 
+`readthedoc` \([http://rackhd.readthedocs.io/en/latest/index.html](http://rackhd.readthedocs.io/en/latest/index.html)\) provides a lot of technical detail and user manual, and it is activly maintained by developers and nearly always reflect the latest RackHD design. This is most recommended doc for you to understand RackHD.
 
 > This is the source code of readthedoc \([https://github.com/RackHD/docs](https://github.com/RackHD/docs)\) if you find any bug, you could submit pull request to fix it.
 
 * **Confluence **\([https://rackhd.atlassian.net/wiki/display/RAC1/RackHD\)](https://rackhd.atlassian.net/wiki/display/RAC1/RackHD)
 * **api doc**: [https://bintray.com/rackhd/docs/apidoc\#files](https://bintray.com/rackhd/docs/apidoc#files)
 
-A reference manual for both RackHD APIs.
+A reference manual for both RackHD APIs. This doc is auto updated if there is any change on APIs.
 
 * **task doc: **
 
 This is an automatically generated documentation for all RackHD built-in tasks, it helps you to understand and use the RackHD  tasks without touching the code.
 
 You need to follow this guide to generate the task doc by youself: [http://rackhd.readthedocs.io/en/latest/rackhd/tasks.html\#task-annotation](http://rackhd.readthedocs.io/en/latest/rackhd/tasks.html#task-annotation)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 Give an overview introduction on RackHD, and draw a table or mind map to illustrate the full technical stack of RackHD. For each entry, give a general introduction, provide the useful link and recommended material.
 
