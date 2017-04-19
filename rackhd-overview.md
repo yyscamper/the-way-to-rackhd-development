@@ -1,5 +1,3 @@
->
-
 # Overview
 
 RackHD serves as an abstraction layer between other M&O layers and the underlying physical hardware. Developers can use the RackHD API to create a user interface that serves as single point of access for managing hardware services regardless of the specific hardware in place.
