@@ -111,30 +111,28 @@ Comparing with Slack, the google group is suitable for discussion about a specif
 
 You could visit the group page via [https://groups.google.com/d/forum/rackhd](https://groups.google.com/d/forum/rackhd)
 
-* ### 
-* Give an overview introduction on RackHD, and draw a table or mind map to illustrate the full technical stack of RackHD. For each entry, give a general introduction, provide the useful link and recommended material.
+# RackHD Meetings
 
-**Goals:**
+There are various meeting to discuss RackHD in different areas,  if you have any interest on those meeting, you could see their meeting minutes from Confluence:
 
-\(1\)Understand what’s RackHD
+* **Core Commiter Weekly Interlock**: [https://rackhd.atlassian.net/wiki/display/RAC1/Core+Commiter+Weekly+Interlock](https://rackhd.atlassian.net/wiki/display/RAC1/Core+Commiter+Weekly+Interlock)
+* **RackHD Architecture Forum**: [https://rackhd.atlassian.net/wiki/display/RAC1/RackHD+Architecture+Forum](https://rackhd.atlassian.net/wiki/display/RAC1/RackHD+Architecture+Forum)
+* **RackHD Quality Review** [https://rackhd.atlassian.net/wiki/display/RAC1/RackHD+Quality+Review+Board](https://rackhd.atlassian.net/wiki/display/RAC1/RackHD+Quality+Review+Board)
+* **Dev Scrum & OSE Leadership Team\(OLT\) Meeting Notes**: [https://rackhd.atlassian.net/wiki/pages/viewpage.action?pageId=9437203](https://rackhd.atlassian.net/wiki/pages/viewpage.action?pageId=9437203)
 
-\(2\)Understand the RackHD teams
+# RackHD Release
 
-\(3\)Understand the RackHD open source development model
+RackHD's current release cycle is 2 weeks, you could obtain the release information from this page: [https://rackhd.atlassian.net/wiki/display/RAC1/RackHD+Release+Page](https://rackhd.atlassian.net/wiki/display/RAC1/RackHD+Release+Page)
 
-\(4\)Understand all materials you could reference to
+There are various artifacts per release, you could choose whatever you prefer:
 
-\(5\)Understand the general technical stack of RackHD
+* Debian package
+* OVA
+* Vagrant box
+* Docker
+* NPM package
 
-\(6\)Understand the basic terms of SCRUM, such as epic, story, RAC, RI, .etc.
+# RackHD Glossary
 
-**Practice**
-
-\(1\)Open Maglev portal page to check how many systems you can access.
-
-\(2\)Setup all necessary accounts, including github, google group, slack, open confluence/jira
-
-**Extend:**
-
-\(1\)Read the RackHD readthedoc.
+RackHD official maintains a list of glossary at this Confluence page: [https://rackhd.atlassian.net/wiki/display/RAC1/RackHD+Glossary](https://rackhd.atlassian.net/wiki/display/RAC1/RackHD+Glossary)
 
