@@ -1,8 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
-* [Outline](outline.md)
-* [Git Workflow](git-workflow.md)
+* [RackHD Overview](rackhd-overview.md)
 * [Installation](chapter1.md)
 * [Unit Testing](unit-testing.md)
   * spec/helper.js
