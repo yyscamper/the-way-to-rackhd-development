@@ -1,4 +1,4 @@
-> NOTE: Some of the content in this chapter is copied from RackHD official document: [http://rackhd.readthedocs.io](http://rackhd.readthedocs.io)
+>
 
 # Overview
 
