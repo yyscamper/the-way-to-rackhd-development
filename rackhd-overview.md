@@ -35,6 +35,10 @@ This DHCP server provides IP addresses dynamically using the DHCP protocol. It i
 
 The MongoDB provices the database for RackHD. RackHD is planing to support other kinds of databases.
 
+* ### RabbitMQ
+
+The RabbitMQ provides the pub/sub interface for inter-communication between different RackHD services, also it provices a means for user to subscribe RackHD events.
+
 * ### on-dhcp-proxy
 
 The DHCP protocol supports getting additional data specifically for the PXE process from a secondary service that also responds on the same network as the DHCP server. The DHCP proxy service provides that information, generated dynamically from the workflow engine.
@@ -56,6 +60,47 @@ on-syslog is a syslog receiver endpoint provideing annotated and structured logg
 * ### on-taskgraph
 
 on-taskgraph is the workflow engine, driving actions on remote systems and processing workflows for machines being managed. Additionally, the workflow engine provides the engine for polling and monitoring.
+
+# RackHD Homepage
+
+The RackHD homepage is hosted in github.io, the address is: [https://rackhd.github.io/](https://rackhd.github.io/), you can get nearly all RackHD news and public resources from it.![](/assets/rackhd-homepage.png)
+
+# Public Documentation
+
+There are various kinds of public documentation can help you to understand RackHD.
+
+* **readthedoc **\([http://rackhd.readthedocs.io/en/latest/index.html](http://rackhd.readthedocs.io/en/latest/index.html)\)
+
+`readthedoc` provides a lot of technical detail and user manual, and it is activly maintained by developers and nearly always reflect the latest RackHD design. This is most recommended doc for you to understand RackHD. 
+
+> This is the source code of readthedoc \([https://github.com/RackHD/docs](https://github.com/RackHD/docs)\) if you find any bug, you could submit pull request to fix it.
+
+* **Confluence **\([https://rackhd.atlassian.net/wiki/display/RAC1/RackHD\)](https://rackhd.atlassian.net/wiki/display/RAC1/RackHD)
+* **api doc**: [https://bintray.com/rackhd/docs/apidoc\#files](https://bintray.com/rackhd/docs/apidoc#files)
+
+A reference manual for both RackHD APIs.
+
+* **task doc: **
+
+This is an automatically generated documentation for all RackHD built-in tasks, it helps you to understand and use the RackHD  tasks without touching the code.
+
+You need to follow this guide to generate the task doc by youself: [http://rackhd.readthedocs.io/en/latest/rackhd/tasks.html\#task-annotation](http://rackhd.readthedocs.io/en/latest/rackhd/tasks.html#task-annotation)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
