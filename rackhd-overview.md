@@ -69,7 +69,7 @@ The RackHD homepage is hosted in github.io, the address is: [https://rackhd.gith
 
 There are various kinds of public documentation can help you to understand RackHD.
 
-* ### **readthedoc**
+* ### R**eadthedoc**
 
 `readthedoc` \([http://rackhd.readthedocs.io/en/latest/index.html](http://rackhd.readthedocs.io/en/latest/index.html)\) provides a lot of technical detail and user manual, and it is activly maintained by developers and nearly always reflect the latest RackHD design. This is most recommended doc for you to understand RackHD.
 
@@ -79,15 +79,29 @@ There are various kinds of public documentation can help you to understand RackH
 
 The Confluence \([https://rackhd.atlassian.net/wiki/display/RAC1/RackHD\)](https://rackhd.atlassian.net/wiki/display/RAC1/RackHD) hosts the doc that doens't need to be kept sync with latest RackHD source code change, including the release notes, meeting minutes and others.
 
-* ### **api doc**
+* ### API D**oc**
 
 The api doc \([https://bintray.com/rackhd/docs/apidoc\#files](https://bintray.com/rackhd/docs/apidoc#files)\) is the reference manual for both RackHD APIs. This doc is auto updated if there is any change on APIs.
 
-* ### **task doc: **
+* ### Task D**oc: **
 
 This is an automatically generated documentation for all RackHD built-in tasks, it helps you to understand and use the RackHD  tasks without touching the code.
 
 You need to follow this guide to generate the task doc by youself: [http://rackhd.readthedocs.io/en/latest/rackhd/tasks.html\#task-annotation](http://rackhd.readthedocs.io/en/latest/rackhd/tasks.html#task-annotation)
+
+# RackHD JIRA
+
+RackHD development is executed in SCRUM model, thus RackHD chooses the JIRA \([https://rackhd.atlassian.net/secure/Dashboard.jspa](https://rackhd.atlassian.net/secure/Dashboard.jspa)\) is to track the roadmap, issues and every team \(even every developer\)'s status. Following is some important boards:
+
+* [**RackHD All Issues \(RAC\)**](https://rackhd.atlassian.net/secure/RapidBoard.jspa?rapidView=7): Record all RackHD opened issues. If you want to sumbit issues, you could create a story into this board.
+* [**RackHD Initiatives \(RI\)**](https://rackhd.atlassian.net/secure/RapidBoard.jspa?rapidView=13): Record RackHD roadmap features.
+* RackHD Team Boards: There are multiple teams accross the world to work together on the RackHD project, each team has its own board, which records the team's working status. Usually each team picks up some stories from RAC or RI and then add into team's backlog.
+
+# Slack
+
+
+
+
 
 Give an overview introduction on RackHD, and draw a table or mind map to illustrate the full technical stack of RackHD. For each entry, give a general introduction, provide the useful link and recommended material.
 
