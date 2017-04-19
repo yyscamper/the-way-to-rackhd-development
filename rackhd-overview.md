@@ -136,7 +136,7 @@ There are various artifacts per release, you could choose whatever you prefer:
 
 RackHD official maintains a list of glossary at this Confluence page: [https://rackhd.atlassian.net/wiki/display/RAC1/RackHD+Glossary](https://rackhd.atlassian.net/wiki/display/RAC1/RackHD+Glossary)
 
-# Practice
+# Exercise
 
 1. Go through RackHD homepage, try to see what you can get.
 2. Register all necessary account, including Github/Confluence/Jira/Slack/GoogleGroup.
