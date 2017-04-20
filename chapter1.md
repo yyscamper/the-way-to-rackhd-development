@@ -281,9 +281,33 @@ $ cd ~/src/on-core
 $ npm test
 ```
 
-You need to ensure no failed test cases. 
+You need to ensure no failed test cases.
 
 > Some unit-test depends on the real MongoDB and RabbitMQ services, if there is test case failure, you could first check whether the MongoDB and RabbitMQ are run successfully.
+
+
+
+### 7. Configure RackHD Services
+
+Download sample config file
+
+### 8. Run RackHD Services
+
+sudo node index.js
+
+run all RackHD services with pm2
+
+check API response
+
+open Swagger UI page.
+
+### 9. Download Static Files
+
+### 10. Deploy Virtual Node
+
+Refer to InfraSIM about how to deploy a virtual node
+
+Verify the virtual node is discovered by RackHD.
 
 
 
