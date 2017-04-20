@@ -10,13 +10,17 @@ All RackHD core services are written in JavaScript
 
 \(2\) Eloquent JavaScript: [http://eloquentjavascript.net/](http://eloquentjavascript.net/)
 
-
-
 * **Node.js**
 
 All RackHD core services run within Node.js
 
 \(1\) Node.js v6.x API Doc: [https://nodejs.org/dist/latest-v6.x/docs/api/](https://nodejs.org/dist/latest-v6.x/docs/api/)
+
+
+
+Dependency Injection
+
+\(1\) Understading Dependency: [https://github.com/angular/angular.js/wiki/Understanding-Dependency-Injection](https://github.com/angular/angular.js/wiki/Understanding-Dependency-Injection)
 
 | Name | Introducation | Resources \(English\) |
 | :--- | :--- | :--- |

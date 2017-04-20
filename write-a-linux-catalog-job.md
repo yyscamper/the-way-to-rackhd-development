@@ -24,5 +24,3 @@ Introduce the catalog job design and know how to create a new parser and compose
 
 -We will provide the parser’s unit-test, you need to make sure your code pass the unit-test.
 
- �J\`�&gt;
-
