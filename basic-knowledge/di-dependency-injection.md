@@ -7,8 +7,6 @@ Suppose we need to use programming lanaguage to construct a computer:
 * Some sub-component may be shared by different component
 * The shared sub-component may be assembed with different parameters in order to compse a component.![](/assets/computer-components-di.png)
 
-
-
 We first create mouse:
 
 ```javascript
@@ -52,8 +50,6 @@ var computer = smartFactory.generate('computer');
 ```
 
 The `di` is just like the smart factory! Every component will have a unique name, we only need to create component and specify its sub-component \(dependency\), then we ask for `di` a component, we tell its unique name, the `di` can recursively resolve the dependency for us.
-
-
 
 ## Create di Module in RackHD
 
@@ -143,7 +139,7 @@ function configurationServiceFactory(...)
     }
 
     ...
-    
+
     ConfigurationService.prototype.start = function start() {
         ...
     };
@@ -186,6 +182,49 @@ var Encryption = injector.get('Encryption');
 var encrypt = new Encryption();
 encrypt.createHash();
 ```
+
+## Other di Characteristic
+
+* Cache
+* Some di helper functions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Introduce the basic knowledge of DI
 
