@@ -203,5 +203,65 @@ Apr 19 15:16:47 rackhd-virtualbox systemd[1]: Started RabbitMQ Messaging Server.
 
 ### 6. Configure Network
 
+Usually we setup a dedicated network for RackHD \(we call it RackHD control network\), the isc-dhcp-server should only work within this network and all RackHD controlled nodes should be put within this network as well.
+
+Below example assumes the interface name of RackHD control network is `enp0s8`
+
+> Ubuntu 16.04 and Ubuntu 14.04 have different naming for network interfaces, we usually see `eth0` and `eth1` in Ubuntu 14.04, however `enp0s3`, `enp0s8` in 16.04. In 16.04, the name has some relation with the real hardware config, so you may see other names.
+
+Add following lines in `/etc/network/interfaces`:
+
+```bash
+# RackHD control network
+auto enp0s8
+iface enp0s8 inet static
+address 172.31.128.1
+netmask 255.255.252.0
+```
+
+Restart network via:
+
+```bash
+$ sudo service networking restart
+```
+
+Check the network is setup successfully:
+
+```bash
+$ ifconfig enp0s8
+enp0s8    Link encap:Ethernet  HWaddr 08:00:27:29:b3:f8
+          inet addr:172.31.128.1  Bcast:172.31.131.255  Mask:255.255.252.0
+          inet6 addr: fe80::a00:27ff:fe29:b3f8/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:30 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:117 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:9414 (9.4 KB)  TX bytes:18667 (18.6 KB)
+
+```
+
+Then configure the isc-dhcp-server to let it works in control network, append following lines into `/etc/dhcp/dhcpd.conf`:
+
+```bash
+# RackHD added lines
+deny duplicates;
+
+ignore-client-uids true;
+
+subnet 172.31.128.0 netmask 255.255.252.0 {
+ range 172.31.128.2 172.31.131.254;
+ # Use this option to signal to the PXE client that we are doing proxy DHCP
+ option vendor-class-identifier "PXEClient";
+ option routers 172.31.128.1;
+ option domain-name-servers 10.254.174.10;
+} 
+```
+
+Restart `isc-dhcp-server` to let the new configuration take effect:
+
+```bash
+$ sudo service isc-dhcp-server restart
+```
+
 
 
