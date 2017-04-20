@@ -12,5 +12,3 @@ Introduce how RackHD recognizes the hardware
 
 \(2\)Put your customized workflow into SKU Pack, and make sure only the Quanta-T41 can successfully run the workflow, other nodes will not.
 
- f
-
