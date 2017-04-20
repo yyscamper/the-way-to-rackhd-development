@@ -24,5 +24,3 @@ Introduce the event design.
 
 -Read the section about Event in readthedoc, understand how many events RackHD will send.
 
- ���'��
-
