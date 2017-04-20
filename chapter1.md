@@ -79,7 +79,7 @@ During the whole developement cycle, you need to frequently touch below 3 kinds 
 
 * **origin**: point to your forked remote repository.
 
-* **local**: your local copy of code. 
+* **local**: your local copy of code.
 
 You write code in `local` code and commit it into `local`, after everything is ready, you push your local code into `origin`, then open a pull request from `origin` into `upstream` and hopely your code change can be merged by RackHD official.
 
@@ -142,7 +142,11 @@ All dependencies for a service is specified in its `package.json`, run `npm inst
 
 Since `on-core` is depended by another repo, the normal `npm install` will fetch a copy of `on-core` into `node_modules` folder. Assume we have a code change in `on-core`, to make it take effects for every repo, then we have to change the `on-core` copy for every repo. This is very very unacceptable for developer. So we look forward to a solution which change once for `on-core`, its change can be automatically applied to all other repos. The `npm link` is designed to resolve this problem.
 
+![](/assets/a-lot-copied-of-on-core.png)
+
 With `npm link`, the real source code of `on-core` is stored at the same folder of other repos. For other repos which depend on the `on-core`, the `npm link` will assue they are linked with the same `on-core.`
+
+![](/assets/npm-link-on-core.png)
 
 Below is the shell script which installs dependencies for all repos and also build links between them:
 
@@ -162,18 +166,11 @@ for repo in $(echo "on-taskgraph on-http");do
   pushd ~/src/$repo
   npm link ../on-tasks
 done
-
 ```
 
+### 5. Install 3rd Parties Services/Tools
 
 
-
-
-```bash
-
-
-
-```
 
 
 
