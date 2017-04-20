@@ -12,9 +12,115 @@ Please make sure following prerequiste is met before go ahead:
 
 # Steps
 
-### 1. Install Node.js
+### 1. Install 3rd Parties Services/Tools
 
-Now the core and most RackHD services are written in JavaScript and run in Node.js environment. So the first step you have to install the Node.js.
+Besides a lot 3rd parties libraries, RackHD also relies on some other 3rd parties services and tools, including isc-dhcp-server, MongoDB, RabbitMQ, ipmitool, snmp.etc.
+
+```bash
+$ sudo apt-get install -y isc-dhcp-server mongodb rabbitmq-server ipmitool snmp
+```
+
+After installation, the isc-dhcp-server, MongoDB, RabbitMQ service should automatically starts,
+
+```bash
+$ sudo service rabbitmq-server status
+● rabbitmq-server.service - RabbitMQ Messaging Server
+   Loaded: loaded (/lib/systemd/system/rabbitmq-server.service; enabled; vendor preset: enabled)
+   Active: active (running) since Wed 2017-04-19 15:16:47 CST; 18h ago
+ Main PID: 1145 (rabbitmq-server)
+    Tasks: 70
+   Memory: 26.0M
+      CPU: 18min 35.836s
+   CGroup: /system.slice/rabbitmq-server.service
+           ├─1145 /bin/sh /usr/sbin/rabbitmq-server
+           ├─1193 /bin/sh -e /usr/lib/rabbitmq/bin/rabbitmq-server
+           ├─1380 /usr/lib/erlang/erts-7.3/bin/epmd -daemon
+           ├─1426 /usr/lib/erlang/erts-7.3/bin/beam -W w -A 64 -P 1048576 -K true -B i -- -root /usr/lib/erlang -progname erl --
+           ├─1529 inet_gethost 4
+           └─1530 inet_gethost 4
+
+Apr 19 15:16:38 rackhd-virtualbox systemd[1]: Starting RabbitMQ Messaging Server...
+Apr 19 15:16:44 rackhd-virtualbox rabbitmq[1146]: Waiting for 'rabbit@rackhd-virtualbox' ...
+Apr 19 15:16:44 rackhd-virtualbox rabbitmq[1146]: pid is 1193 ...
+Apr 19 15:16:47 rackhd-virtualbox systemd[1]: Started RabbitMQ Messaging Server.
+```
+
+> After installation, the `isc-dhcp-server` may not work well, you can skip it in this step. To ensure it works well, check next section "Configure Network".
+
+Check ipmitool & snmp version by following commands:
+
+```bash
+$ ipmitool -V
+ipmitool version 1.8.16
+
+$ snmpwalk -V
+NET-SNMP version: 5.7.3
+```
+
+### 2. Configure Network
+
+Usually we setup a dedicated network for RackHD \(we call it RackHD control network\), the isc-dhcp-server should only work within this network and all RackHD controlled nodes should be put within this network as well.
+
+Below example assumes the interface name of RackHD control network is `enp0s8`
+
+> Ubuntu 16.04 and Ubuntu 14.04 have different naming for network interfaces, we usually see `eth0` and `eth1` in Ubuntu 14.04, however `enp0s3`, `enp0s8` in 16.04. In 16.04, the name has some relation with the real hardware config, so you may see other names.
+
+Add following lines in `/etc/network/interfaces`:
+
+```bash
+# RackHD control network
+auto enp0s8
+iface enp0s8 inet static
+address 172.31.128.1
+netmask 255.255.252.0
+```
+
+Restart network via:
+
+```bash
+$ sudo service networking restart
+```
+
+Check the network is setup successfully:
+
+```bash
+$ ifconfig enp0s8
+enp0s8    Link encap:Ethernet  HWaddr 08:00:27:29:b3:f8
+          inet addr:172.31.128.1  Bcast:172.31.131.255  Mask:255.255.252.0
+          inet6 addr: fe80::a00:27ff:fe29:b3f8/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:30 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:117 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:9414 (9.4 KB)  TX bytes:18667 (18.6 KB)
+```
+
+Then configure the isc-dhcp-server to let it works in control network, append following lines into `/etc/dhcp/dhcpd.conf`:
+
+```bash
+# RackHD added lines
+deny duplicates;
+
+ignore-client-uids true;
+
+subnet 172.31.128.0 netmask 255.255.252.0 {
+ range 172.31.128.2 172.31.131.254;
+ # Use this option to signal to the PXE client that we are doing proxy DHCP
+ option vendor-class-identifier "PXEClient";
+ option routers 172.31.128.1;
+ option domain-name-servers 10.254.174.10;
+}
+```
+
+Restart `isc-dhcp-server` to let the new configuration take effect:
+
+```bash
+$ sudo service isc-dhcp-server restart
+```
+
+### 3. Install Node.js
+
+Now the core and most RackHD services are written in JavaScript and run in Node.js environment. So you have to install the Node.js.
 
 As for which Node.js version should I installed, I recommend you to check the TravisCI configuration, take the on-taskgraph for example, the link is [https://travis-ci.org/RackHD/on-taskgraph](https://travis-ci.org/RackHD/on-taskgraph), you could see two versions in build jobs![](/assets/travis-ci-nodejs-version.png)Since the Node.js: 6 is placed under "Allowed Failures", it means the RackHD official tries to run RackHD in Node.js 6.x, but any failure in Node.js 6.x can be ignored. So the Node.js 4.x is the offical promised RackHD version.
 
@@ -63,7 +169,7 @@ v4.8.2
 
 ![](/assets/add-n-into-sudo-path.png)
 
-### 2. Fork Repository
+### 4. Fork Repository
 
 Only a few people have write permission to RackHD official repositories, usually you only have read-only permission, if you want to contribute code into RackHD official repositority, you firstly need to fork it and then submit pull request to RackHD offical repository.
 
@@ -71,7 +177,7 @@ Only a few people have write permission to RackHD official repositories, usually
 
 Click the "Fork" button in RackHD official repo:![](/assets/click-fork-button.png)Then you will see your forked repo:![](/assets/my-forked-repo.png)For the forked repo, you have full premission, you can modify it whatever you want \(even delete it!\)
 
-### 3. Clone Source Code
+### 5. Clone Source Code
 
 During the whole developement cycle, you need to frequently touch below 3 kinds of repositores:
 
@@ -115,7 +221,7 @@ for repo in $(echo "on-core on-tasks on-taskgraph on-http on-dhcp-proxy on-tftp 
 done
 ```
 
-### 4. Install Dependency
+### 6. Install Dependency
 
 A typical Node.js project usually requires to install some 3rd party libraries via npm, this also works to RackHD.
 
@@ -168,100 +274,16 @@ for repo in $(echo "on-taskgraph on-http");do
 done
 ```
 
-### 5. Install 3rd Parties Services/Tools
-
-Besides a lot 3rd parties libraries, RackHD also relies on some other 3rd parties services and tools, including isc-dhcp-server, MongoDB, RabbitMQ, ipmitool, snmp.etc.
+To check whether the dependencies are installed correctly, you could run the unit-testing for each repo. To run unit-test, firstly go the repo's folder, then execute `npm install`, take `on-core` for example:
 
 ```bash
-$ sudo apt-get install -y isc-dhcp-server mongodb rabbitmq-server ipmitool snmp
+$ cd ~/src/on-core
+$ npm test
 ```
 
-After installation, the isc-dhcp-server, MongoDB, RabbitMQ service should automatically starts,
+You need to ensure no failed test cases. 
 
-```bash
-$ sudo service rabbitmq-server status
-● rabbitmq-server.service - RabbitMQ Messaging Server
-   Loaded: loaded (/lib/systemd/system/rabbitmq-server.service; enabled; vendor preset: enabled)
-   Active: active (running) since Wed 2017-04-19 15:16:47 CST; 18h ago
- Main PID: 1145 (rabbitmq-server)
-    Tasks: 70
-   Memory: 26.0M
-      CPU: 18min 35.836s
-   CGroup: /system.slice/rabbitmq-server.service
-           ├─1145 /bin/sh /usr/sbin/rabbitmq-server
-           ├─1193 /bin/sh -e /usr/lib/rabbitmq/bin/rabbitmq-server
-           ├─1380 /usr/lib/erlang/erts-7.3/bin/epmd -daemon
-           ├─1426 /usr/lib/erlang/erts-7.3/bin/beam -W w -A 64 -P 1048576 -K true -B i -- -root /usr/lib/erlang -progname erl --
-           ├─1529 inet_gethost 4
-           └─1530 inet_gethost 4
-
-Apr 19 15:16:38 rackhd-virtualbox systemd[1]: Starting RabbitMQ Messaging Server...
-Apr 19 15:16:44 rackhd-virtualbox rabbitmq[1146]: Waiting for 'rabbit@rackhd-virtualbox' ...
-Apr 19 15:16:44 rackhd-virtualbox rabbitmq[1146]: pid is 1193 ...
-Apr 19 15:16:47 rackhd-virtualbox systemd[1]: Started RabbitMQ Messaging Server.
-```
-
-### 6. Configure Network
-
-Usually we setup a dedicated network for RackHD \(we call it RackHD control network\), the isc-dhcp-server should only work within this network and all RackHD controlled nodes should be put within this network as well.
-
-Below example assumes the interface name of RackHD control network is `enp0s8`
-
-> Ubuntu 16.04 and Ubuntu 14.04 have different naming for network interfaces, we usually see `eth0` and `eth1` in Ubuntu 14.04, however `enp0s3`, `enp0s8` in 16.04. In 16.04, the name has some relation with the real hardware config, so you may see other names.
-
-Add following lines in `/etc/network/interfaces`:
-
-```bash
-# RackHD control network
-auto enp0s8
-iface enp0s8 inet static
-address 172.31.128.1
-netmask 255.255.252.0
-```
-
-Restart network via:
-
-```bash
-$ sudo service networking restart
-```
-
-Check the network is setup successfully:
-
-```bash
-$ ifconfig enp0s8
-enp0s8    Link encap:Ethernet  HWaddr 08:00:27:29:b3:f8
-          inet addr:172.31.128.1  Bcast:172.31.131.255  Mask:255.255.252.0
-          inet6 addr: fe80::a00:27ff:fe29:b3f8/64 Scope:Link
-          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
-          RX packets:30 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:117 errors:0 dropped:0 overruns:0 carrier:0
-          collisions:0 txqueuelen:1000
-          RX bytes:9414 (9.4 KB)  TX bytes:18667 (18.6 KB)
-
-```
-
-Then configure the isc-dhcp-server to let it works in control network, append following lines into `/etc/dhcp/dhcpd.conf`:
-
-```bash
-# RackHD added lines
-deny duplicates;
-
-ignore-client-uids true;
-
-subnet 172.31.128.0 netmask 255.255.252.0 {
- range 172.31.128.2 172.31.131.254;
- # Use this option to signal to the PXE client that we are doing proxy DHCP
- option vendor-class-identifier "PXEClient";
- option routers 172.31.128.1;
- option domain-name-servers 10.254.174.10;
-} 
-```
-
-Restart `isc-dhcp-server` to let the new configuration take effect:
-
-```bash
-$ sudo service isc-dhcp-server restart
-```
+> Some unit-test depends on the real MongoDB and RabbitMQ services, if there is test case failure, you could first check whether the MongoDB and RabbitMQ are run successfully.
 
 
 
