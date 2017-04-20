@@ -170,13 +170,13 @@ done
 
 ### 5. Install 3rd Parties Services/Tools
 
-Besides a lot 3rd parties libraries, RackHD also relies on some other 3rd parties services and tools, including isc-dhcp-server, MongoDB, RabbitMQ, ipmitool, snmp.etc. 
+Besides a lot 3rd parties libraries, RackHD also relies on some other 3rd parties services and tools, including isc-dhcp-server, MongoDB, RabbitMQ, ipmitool, snmp.etc.
 
 ```bash
 $ sudo apt-get install -y isc-dhcp-server mongodb rabbitmq-server ipmitool snmp
 ```
 
-After installation, the isc-dhcp-server, MongoDB, RabbitMQ service should automatically starts, 
+After installation, the isc-dhcp-server, MongoDB, RabbitMQ service should automatically starts,
 
 ```bash
 $ sudo service rabbitmq-server status
@@ -200,6 +200,8 @@ Apr 19 15:16:44 rackhd-virtualbox rabbitmq[1146]: Waiting for 'rabbit@rackhd-vir
 Apr 19 15:16:44 rackhd-virtualbox rabbitmq[1146]: pid is 1193 ...
 Apr 19 15:16:47 rackhd-virtualbox systemd[1]: Started RabbitMQ Messaging Server.
 ```
+
+### 6. Configure Network
 
 
 
