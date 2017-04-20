@@ -16,5 +16,3 @@ TDB: Think about a problem to try to resolve it, lodash function will help us to
 
 \(1\)Read the source code of lodash
 
- v
-

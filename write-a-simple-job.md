@@ -20,5 +20,3 @@ Introduce how to write a simple job.
 
 -\(Nice-to-Have\) Create a schema and make sure the “iterations” is a number and should be &lt;=100.
 
- O����&gt;
-
