@@ -170,7 +170,36 @@ done
 
 ### 5. Install 3rd Parties Services/Tools
 
+Besides a lot 3rd parties libraries, RackHD also relies on some other 3rd parties services and tools, including isc-dhcp-server, MongoDB, RabbitMQ, ipmitool, snmp.etc. 
 
+```bash
+$ sudo apt-get install -y isc-dhcp-server mongodb rabbitmq-server ipmitool snmp
+```
+
+After installation, the isc-dhcp-server, MongoDB, RabbitMQ service should automatically starts, 
+
+```bash
+$ sudo service rabbitmq-server status
+● rabbitmq-server.service - RabbitMQ Messaging Server
+   Loaded: loaded (/lib/systemd/system/rabbitmq-server.service; enabled; vendor preset: enabled)
+   Active: active (running) since Wed 2017-04-19 15:16:47 CST; 18h ago
+ Main PID: 1145 (rabbitmq-server)
+    Tasks: 70
+   Memory: 26.0M
+      CPU: 18min 35.836s
+   CGroup: /system.slice/rabbitmq-server.service
+           ├─1145 /bin/sh /usr/sbin/rabbitmq-server
+           ├─1193 /bin/sh -e /usr/lib/rabbitmq/bin/rabbitmq-server
+           ├─1380 /usr/lib/erlang/erts-7.3/bin/epmd -daemon
+           ├─1426 /usr/lib/erlang/erts-7.3/bin/beam -W w -A 64 -P 1048576 -K true -B i -- -root /usr/lib/erlang -progname erl --
+           ├─1529 inet_gethost 4
+           └─1530 inet_gethost 4
+
+Apr 19 15:16:38 rackhd-virtualbox systemd[1]: Starting RabbitMQ Messaging Server...
+Apr 19 15:16:44 rackhd-virtualbox rabbitmq[1146]: Waiting for 'rabbit@rackhd-virtualbox' ...
+Apr 19 15:16:44 rackhd-virtualbox rabbitmq[1146]: pid is 1193 ...
+Apr 19 15:16:47 rackhd-virtualbox systemd[1]: Started RabbitMQ Messaging Server.
+```
 
 
 
