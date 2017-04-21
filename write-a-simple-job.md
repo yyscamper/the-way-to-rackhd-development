@@ -239,7 +239,7 @@ Introduce how to write a simple job.
 
 Please write a RackHD job to calculate the Fibonacci number for given `seqIndex` and store the result into `context.fibonacciResult`:
 
-* If `seqIndex=1`, `context.fibonacciResult=1; `If `seqIndex=2`, `context.fibonacciResult=1; `If `seqIndex=3`, `context.fibonacciResult=2; ...`
+* If `seqIndex=1`, `context.fibonacciResult=1;`If `seqIndex=2`, `context.fibonacciResult=1;`If `seqIndex=3`, `context.fibonacciResult=2; ...`
 * If `seqIndex<=0` or `seqIndex > 50`, The job should fail with `RangeError.`
 * If `seqIndex` is not a number or not specified, The job should fail with `TypeError`.
 * If `seqIndex` is folat number, then use its integer parts. For example, `seqIndex=5.2` will get same result with `seqIndex=5`
