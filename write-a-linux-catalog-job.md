@@ -52,10 +52,10 @@ Then you need to parse the output into JSON data \(the folder `.` and `..` shoul
             "group": "rw-"
             "others": "r--",
         },
-        "link_count": "1",
+        "link_count": 1,
         "owner": "yuanf",
         "group": "root",
-        "size": "0",
+        "size": 0,
         "modified_time": "Feb 20 21:31",
         "name": "a.js"
     },
@@ -66,10 +66,10 @@ Then you need to parse the output into JSON data \(the folder `.` and `..` shoul
             "group": "rw-"
             "others": "r--",
         },
-        "link_count": "1",
+        "link_count": 1,
         "owner": "yuanf",
         "group": "yuanf",
-        "size": "18242",
+        "size": 18242,
         "modified_time": "Feb 24 15:29",
         "name": ".babel.json"
     },   
@@ -80,10 +80,10 @@ Then you need to parse the output into JSON data \(the folder `.` and `..` shoul
             "group": "rwx"
             "others": "r-x",
         },
-        "link_count": "5",
+        "link_count": 5,
         "owner": "yuanf",
         "group": "yuanf",
-        "size": "4096",
+        "size": 4096,
         "modified_time": "Feb 13 10:22",
         "name": "backup"
     }, 
@@ -94,10 +94,10 @@ Then you need to parse the output into JSON data \(the folder `.` and `..` shoul
             "group": "rwx"
             "others": "rwx",
         },
-        "link_count": "1",
+        "link_count": 1,
         "owner": "yuanf",
         "group": "yuanf",
-        "size": "46",
+        "size": 46,
         "modified_time": "Aug  2  2016",
         "name": "alias",
         "link_origin": "/home/rackhd/personal/dotfiles/files/bash-alias"
