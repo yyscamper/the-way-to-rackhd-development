@@ -41,7 +41,7 @@ drwxrwxr-x     5 yuanf yuanf      4096 Feb 13 10:22 backup/
 lrwxrwxrwx     1 yuanf yuanf        46 Aug  2  2016 alias -> /home/rackhd/personal/dotfiles/files/bash-alias
 ```
 
-The you need to parse the output into JSON data:
+Then you need to parse the output into JSON data \(the folder `.` and `..` should be discarded\):
 
 ```javascript
 [
