@@ -10,6 +10,7 @@
 * IPMI is a specifications that provides standardized hardware interfaces and abstraction
 
 * 1998 v1.0, 2001 v1.5, 2004 v2.0
+
 * The primary IPMI features include:
 
   * Monitoring \(supervision of the hardware\)
@@ -18,6 +19,7 @@
   * Inventory \(list of hardware inventory\)
 
 * Avaiable even if system is powered down and no OS loaded
+
 * IPMI Components
   * BMC \(Baseboard Management Controller\): The heart of IPMI
   * IPMB \(Intelligent Platform Management Bus\)
@@ -39,22 +41,11 @@
 
 
 
-
-
-
-
-* SEL \(System Event Logging\)
-* IPMI Channel: kcs/lan/lanplus/...
-
 ![](/assets/ipmi-architecture.png)
 
 ## Redfish
 
 [https://www.dmtf.org/sites/default/files/Introduction\_to\_Redfish\_2015.pdf](https://www.dmtf.org/sites/default/files/Introduction_to_Redfish_2015.pdf)
-
-
-
-
 
 ipmi/redfish/snmp/pxeboot/mongodb/rabbitmq/grpc
 
