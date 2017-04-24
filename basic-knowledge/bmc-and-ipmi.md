@@ -41,13 +41,27 @@
 
 * SOL \(Serial Over LAN\): Redirect data traffic to BMC serial port through an IPMI session
 
+* Disadvantage
+
+  * Insecure
+
+  * Lots of OEM commands
+
+  * Scability problems
+
 * Reference
-  * [https://www.cern.ch/it-dep-fio-ds/Presentations/2004/ipmi\_server\_management.ppt](https://www.cern.ch/it-dep-fio-ds/Presentations/2004/ipmi_server_management.ppt)
-  * [https://www.thomas-krenn.com/en/wiki/IPMI\_Basics](https://www.thomas-krenn.com/en/wiki/IPMI_Basics)
+
+* [https://www.cern.ch/it-dep-fio-ds/Presentations/2004/ipmi\_server\_management.ppt](https://www.cern.ch/it-dep-fio-ds/Presentations/2004/ipmi_server_management.ppt)
+* [https://www.thomas-krenn.com/en/wiki/IPMI\_Basics](https://www.thomas-krenn.com/en/wiki/IPMI_Basics)
 
 ![](/assets/ipmi-architecture.png)
 
 ## Redfish
+
+* An open industry standard specifiction that provide simple, modern and secure management of scalable platform hardware.
+* RESTful interface over HTTPs in JSON format bases on OData v4
+* A secure, multi-node capable replacement for IPMI-over-LAN.
+* Resource Map:![](/assets/redfish-resource-map.png)
 
 * Reference
   * [https://www.dmtf.org/sites/default/files/Introduction\_to\_Redfish\_2015.pdf](https://www.dmtf.org/sites/default/files/Introduction_to_Redfish_2015.pdf)
