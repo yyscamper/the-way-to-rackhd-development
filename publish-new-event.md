@@ -1,3 +1,31 @@
+
+
+
+
+
+
+# Exercise
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+
 Introduce the event design.
 
 **Goals:**
