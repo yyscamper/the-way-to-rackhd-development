@@ -1,10 +1,33 @@
 
 
+JavaScript:
+
+* Data Type
+
+\(1\) undefined, null, NaN, \[\], ''
+
+\(2\) Array is a special object
+
+\(3\) JSON \(JavaScript Object\)
+
+
+
+* Closure \(Function Scope\)
+* Prototype
 
 
 
 
----
+
+
+
+
+
+
+
+
+
+
 
 introduce the basic knowledge of JavaScript and Node.js
 
