@@ -6,7 +6,7 @@
 
 [https://www.thomas-krenn.com/en/wiki/IPMI\_Basics](https://www.thomas-krenn.com/en/wiki/IPMI_Basics)
 
-* Intelligent Platform Management Interface, Baseboard Management Controller
+* Intelligent Platform Management Interface
 * IPMI is a specifications that provides standardized hardware interfaces and abstraction
 
 * 1998 v1.0, 2001 v1.5, 2004 v2.0
@@ -27,23 +27,30 @@
   * ICMB \(Intelligent Chassis Management Bus\)
 
 * Some Data Types
+
   * SEL \(System Event Logging\)
   * SDR \(Sensor Data Record\)
   * Sensor
   * FRU \(Field Replaceable Unit\)
 
 * System Interfaces
+
   * KCS
   * Lan
   * Others \(Serial, ...\)
 
 * SOL \(Serial Over LAN\): Redirect data traffic to BMC serial port through an IPMI session
 
+* Reference
+  * [https://www.cern.ch/it-dep-fio-ds/Presentations/2004/ipmi\_server\_management.ppt](https://www.cern.ch/it-dep-fio-ds/Presentations/2004/ipmi_server_management.ppt)
+  * [https://www.thomas-krenn.com/en/wiki/IPMI\_Basics](https://www.thomas-krenn.com/en/wiki/IPMI_Basics)
+
 ![](/assets/ipmi-architecture.png)
 
 ## Redfish
 
-[https://www.dmtf.org/sites/default/files/Introduction\_to\_Redfish\_2015.pdf](https://www.dmtf.org/sites/default/files/Introduction_to_Redfish_2015.pdf)
+* Reference
+  * [https://www.dmtf.org/sites/default/files/Introduction\_to\_Redfish\_2015.pdf](https://www.dmtf.org/sites/default/files/Introduction_to_Redfish_2015.pdf)
 
 ipmi/redfish/snmp/pxeboot/mongodb/rabbitmq/grpc
 
