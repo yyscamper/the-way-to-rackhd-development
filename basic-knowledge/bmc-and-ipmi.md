@@ -21,25 +21,23 @@
 * Avaiable even if system is powered down and no OS loaded
 
 * IPMI Components
+
   * BMC \(Baseboard Management Controller\): The heart of IPMI
   * IPMB \(Intelligent Platform Management Bus\)
   * ICMB \(Intelligent Chassis Management Bus\)
+
 * Some Data Types
   * SEL \(System Event Logging\)
   * SDR \(Sensor Data Record\)
   * Sensor
   * FRU \(Field Replaceable Unit\)
+
 * System Interfaces
-
   * KCS
-
   * Lan
-
-  * Others \(Serial, ...
+  * Others \(Serial, ...\)
 
 * SOL \(Serial Over LAN\): Redirect data traffic to BMC serial port through an IPMI session
-
-
 
 ![](/assets/ipmi-architecture.png)
 
