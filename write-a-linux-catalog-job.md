@@ -28,7 +28,7 @@ Why a lot catalog task is set to ignoreFailure?
 
 \(1\) Design a Linux catalog task which parse the `ls -l` for the given folder or file and store the result into source `ls`.
 
-For example, if the given folder is /var/opt, the `ls -l /var/opt` outputs:
+For example, if the given folder is /var/opt, the `ls -l /var/opt` output is:
 
 ```bash
 $ ls -l /var/opt
