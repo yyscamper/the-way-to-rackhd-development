@@ -1,3 +1,23 @@
+## IPMI & BMC
+
+* Intelligent Platform Management Interface, Baseboard Management Controller
+* 1998 v1.0, 2001 v1.5, 2004 v2.0
+* Avaiable even if system is powered down and no OS loaded
+* Sensor
+* SDR
+* SEL
+* IPMI Channel: kcs/lan/lanplus/...
+
+
+
+## Redfish
+
+[https://www.dmtf.org/sites/default/files/Introduction\_to\_Redfish\_2015.pdf](https://www.dmtf.org/sites/default/files/Introduction_to_Redfish_2015.pdf)
+
+
+
+
+
 ipmi/redfish/snmp/pxeboot/mongodb/rabbitmq/grpc
 
 Introduce the basic knowledge of RackHD frequently used HW protocol and 3rd party services.

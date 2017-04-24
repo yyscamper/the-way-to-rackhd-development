@@ -12,9 +12,9 @@
 
 ## Catalog Parser
 
-* How to link a task with a parser?
+* How to link a task with a parser? Fixed Command String or Regexp Matching
 
-## 
+
 
 ## Touch Microkernel
 
