@@ -1,11 +1,5 @@
 ## IPMI & BMC
 
-* Reference: 
-
-[https://www.cern.ch/it-dep-fio-ds/Presentations/2004/ipmi\_server\_management.ppt](https://www.cern.ch/it-dep-fio-ds/Presentations/2004/ipmi_server_management.ppt)
-
-[https://www.thomas-krenn.com/en/wiki/IPMI\_Basics](https://www.thomas-krenn.com/en/wiki/IPMI_Basics)
-
 * Intelligent Platform Management Interface
 * IPMI is a specifications that provides standardized hardware interfaces and abstraction
 
@@ -51,8 +45,9 @@
 
 * Reference
 
-* [https://www.cern.ch/it-dep-fio-ds/Presentations/2004/ipmi\_server\_management.ppt](https://www.cern.ch/it-dep-fio-ds/Presentations/2004/ipmi_server_management.ppt)
-* [https://www.thomas-krenn.com/en/wiki/IPMI\_Basics](https://www.thomas-krenn.com/en/wiki/IPMI_Basics)
+  * [https://www.cern.ch/it-dep-fio-ds/Presentations/2004/ipmi\_server\_management.ppt](https://www.cern.ch/it-dep-fio-ds/Presentations/2004/ipmi_server_management.ppt)
+
+  * [https://www.thomas-krenn.com/en/wiki/IPMI\_Basics](https://www.thomas-krenn.com/en/wiki/IPMI_Basics)
 
 ![](/assets/ipmi-architecture.png)
 
@@ -64,27 +59,8 @@
 * Resource Map:![](/assets/redfish-resource-map.png)
 
 * Reference
+
   * [https://www.dmtf.org/sites/default/files/Introduction\_to\_Redfish\_2015.pdf](https://www.dmtf.org/sites/default/files/Introduction_to_Redfish_2015.pdf)
 
-ipmi/redfish/snmp/pxeboot/mongodb/rabbitmq/grpc
 
-Introduce the basic knowledge of RackHD frequently used HW protocol and 3rd party services.
-
-**Goals:**
-
-\(1\)Understand what’s BMC/IPMI/SNMP protocol
-
-\(2\)Familiar with the basic operation of ipmi & snmp commands, such as power control, read fru info, sensor, sel.
-
-\(3\)Understand the flow of pxe boot
-
-\(4\)Understand the basic knowledge of mongodb, rabbitmq & grpc.
-
-**Practice:**
-
-\(1\)Practice the ipmi & snmp commands.
-
-\(2\)Practice using raw mongodb command to read RackHD database.
-
-\(3\)Practice how to listen rabbitmq events.
 
