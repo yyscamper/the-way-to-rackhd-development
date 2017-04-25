@@ -22,6 +22,7 @@ Not only for callback trap!!!
 * Inverse control \(How to trust 3rd party callback?!\)
 
 * Ensure callback is called only once \(critical for bank service\)
+
 * Ensure callback is scheduled by designed sequence
 
 ## From Callback to Promise
@@ -47,13 +48,12 @@ db.users.find({name: 'yyscamper'}, function(err, user) {
 });
 ```
 
-
-
 Promise style:
 
 ```javascript
 return db.users.find('name: yyscamper')
 .then(function(user) {
+    if (!user) { throw new Error(...) };
     user.img = db.images.find(user.portrait);
     return user;
 })
@@ -67,15 +67,12 @@ return db.users.find('name: yyscamper')
 .catch(function(err) {
     //handle all error here
 });
+
 ```
-
-
 
 ## Promise State Machine
 
 ![](/assets/promise-state-machine)
-
-
 
 ## Create Promise
 
@@ -92,6 +89,15 @@ var readFileAsync = function(path) {
         };
     });
 });
+
+
+readFileAsync(path)
+.then(function(data) {
+    console.log(data);
+});
+
+
+var readFilePromise = Promise.promisify(fs.readFile);
 ```
 
 Some short hands:
@@ -123,12 +129,9 @@ Promise.reduce
 Promise.every
 Promise.some
 Promise.each
-
 ```
 
 ## ES6 Promise vs. Bluebird vs. Q vs. Thenable
-
-
 
 ## New in ES6/ES7
 
@@ -139,7 +142,7 @@ Promise.each
 var user = await db.users.find(...);
 var user.img = await db.img.find(...);
 var user.tweets = await db.tweets.count(...);
-... 
+...
 ```
 
 ## Reference
