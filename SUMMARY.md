@@ -13,7 +13,6 @@
   * [Promise](basic-knowledge/promise.md)
   * [di \(Dependency Injection\)](basic-knowledge/di-dependency-injection.md)
   * [BMC & IPMI & Redfish](basic-knowledge/bmc-and-ipmi.md)
-  * [SNMP](basic-knowledge/snmp.md)
   * [MongoDB](basic-knowledge/mongodb.md)
   * [RabbitMQ](basic-knowledge/rabbitmq.md)
   * [PXE Boot](unit-testing/pxe-boot.md)
