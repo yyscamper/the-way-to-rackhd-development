@@ -1,7 +1,5 @@
 ## A Real Problem
 
-Dependency Injection
-
 Suppose we need to use programming lanaguage to construct a computer:
 
 * A computer is made of a lot of components
@@ -177,7 +175,7 @@ function encryptionFactory(...) {
 }
 ```
 
-Usually, you need to create a instance before using it:
+Usually, you need to create an instance before using it:
 
 ```javascript
 var Encryption = injector.get('Encryption');
@@ -190,25 +188,5 @@ encrypt.createHash();
 * Cache
 * Some di helper functions
 
----
 
-Introduce the basic knowledge of DI
-
-**Goals:**
-
-\(1\)Understand what’s di, and the benefit of di.
-
-\(2\)Understand how to inject a module into di in RackHD.
-
-\(3\)Understand how to annotate a module, so that it can be auto registered by di.
-
-\(4\)Understand the common helper functions of di.
-
-**Practice:**
-
-TDB: Think about a problem, you need to split it into different modules, and each module is annotated via di. You need to resolve all dependency via di.
-
-**Extend:**
-
-\(1\)Read the source code of di
 
