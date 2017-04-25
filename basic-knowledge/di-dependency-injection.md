@@ -1,5 +1,7 @@
 ## A Real Problem
 
+Dependency Injection
+
 Suppose we need to use programming lanaguage to construct a computer:
 
 * A computer is made of a lot of components
@@ -188,13 +190,7 @@ encrypt.createHash();
 * Cache
 * Some di helper functions
 
-
-
-
-
 ---
-
-
 
 Introduce the basic knowledge of DI
 
