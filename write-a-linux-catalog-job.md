@@ -12,15 +12,18 @@ The multiplicity of data that describes the characteristic of a node and its bel
   * megaraid
   * ...
 * By trigger mode
+
   * Auto Catalog: The catalog that auto-gathered immediately when a node is newly discovered \(Computer Node\)
   * Passive Catalog: The catalog that gathered after the node has been discovered by triggering a catalog workflow. \(Mgmt Server/Switch/Pdu…\)
 
 * By execution environment:
+
   * Microkernel based catalog \(ohai/dmi/bmc/smart/driveId…\)
 
   * Local catalog \(some ipmi, snmp related\)
 
 * By sku scope:
+
   * command catalog
   * sku specified \(racadm, redfish, ...\)
 
@@ -234,6 +237,28 @@ matchParsers.ipmiUserList = {
 ```
 
 ## Remote Catalog Procedure
+
+![](/assets/remote-catalog-flow.png)
+
+* Job
+
+subscribeRequestCommands
+
+sbuscribeRespondCommands
+
+* Southbound APi Service
+
+RequestCommands
+
+RespondCommands
+
+* Nodes
+
+GET /tasks
+
+POST /tasks
+
+## 
 
 ## Touch Microkernel
 
