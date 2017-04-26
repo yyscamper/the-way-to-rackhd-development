@@ -233,9 +233,17 @@ module.exports = {
 };
 ```
 
-## Task Schema
+## Options Schema
+
+* A schema to describe the `options` fromat for the task or job
+* Job Schema / Task-Specific Schema / Common Schema
+* Upfront input validation
+* Generate document for task
+* Refer to [http://rackhd.readthedocs.io/en/latest/rackhd/tasks.html\#options-schema](http://rackhd.readthedocs.io/en/latest/rackhd/tasks.html#options-schema)
 
 ## Task Documentation
+
+![](/assets/task-doc-example.png)
 
 # Exercise
 
