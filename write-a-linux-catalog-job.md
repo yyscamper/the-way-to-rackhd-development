@@ -1,14 +1,198 @@
 ## What's Catalog?
 
-## Remote Catalog vs. Local Catalog
+The multiplicity of data that describes the characteristic of a node and its belongings, these data are gathered  through various tools and protocols.
 
-## Remote Catalog Procedure
+## Catalog Classification
+
+* By catalog source
+  * dmi
+  * ohai
+  * driveid
+  * bmc
+  * megaraid
+  * ...
+* By trigger mode
+  * Auto Catalog: The catalog that auto-gathered immediately when a node is newly discovered \(Computer Node\)
+  * Passive Catalog: The catalog that gathered after the node has been discovered by triggering a catalog workflow. \(Mgmt Server/Switch/Pdu…\)
+
+* By execution environment:
+  * Microkernel based catalog \(ohai/dmi/bmc/smart/driveId…\)
+
+  * Local catalog \(some ipmi, snmp related\)
+
+* By sku scope:
+  * command catalog
+  * sku specified \(racadm, redfish, ...\)
+
+## Catalog Document
+
+* Raw Command Output
+
+```
+FRU Device Description : Builtin FRU Device (ID 0)
+ Chassis Type          : Rack Mount Chassis
+ Chassis Serial        : QTFCEV4120280
+ Board Mfg Date        : Tue Apr  8 01:48:00 2014
+ Board Mfg             : Quanta
+ Board Product         : S210-X12RS V2
+ Board Serial          : QTF3EV41400432
+ Board Part Number     : 31S2RMB00H0
+ Product Manufacturer  : Quanta
+ Product Name          : S210-X12RS V2
+ Product Serial        : QTFCEV4120280
+
+FRU Device Description : AST2300
+ Chassis Type          : Rack Mount Chassis
+ Chassis Serial        : QTFCEV4120280
+ Board Mfg Date        : Tue Apr  8 01:48:00 2014
+ Board Mfg             : Quanta
+ Board Product         : S210-X12RS V2
+ Board Serial          : QTF3EV41400432
+ Board Part Number     : 31S2RMB00H0
+ Product Manufacturer  : Quanta
+ Product Name          : S210-X12RS V2
+ Product Serial        : QTFCEV4120280
+```
+
+* Parsed Catalog:
+
+```json
+{
+    "createdAt": "2016-04-25T07:47:15.317Z",
+    "data": {
+        "Builtin FRU Device (ID 0)": {
+            "Board Mfg": "Quanta",
+            "Board Mfg Date": "Tue Apr  8 01:48:00 2014",
+            "Board Part Number": "31S2RMB00H0",
+            "Board Product": "S210-X12RS V2",
+            "Board Serial": "QTF3EV41400432",
+            "Chassis Type": "Rack Mount Chassis",
+            "Product Manufacturer": "Quanta",
+            "Product Name": "S210-X12RS V2",
+            "Product Serial": "QTFCEV4120280"
+        },
+        "AST2300": {
+            "Board Mfg": "Quanta",
+            "Board Mfg Date": "Tue Apr  8 01:48:00 2014",
+            "Board Part Number": "31S2RMB00H0",
+            "Board Product": "S210-X12RS V2",
+            "Board Serial": "QTF3EV41400432",
+            "Chassis Type": "Rack Mount Chassis",
+            "Product Manufacturer": "Quanta",
+            "Product Name": "S210-X12RS V2",
+            "Product Serial": "QTFCEV4120280"
+        }
+    },
+    "id": "571dcb832e99e68d3cfe6824",
+    "node": "571dcb631facd49c3c5659ff",
+    "source": "ipmi-fru",
+    "updatedAt": "2016-04-25T07:47:15.317Z"
+}
+```
+
+## Catalog Graphs
+
+```javascript
+module.exports = {
+    friendlyName: 'Discovery',
+    injectableName: 'Graph.Discovery',
+    options: {...},
+    tasks: [
+        {
+            label: 'bootstrap-ubuntu',
+            taskName: 'Task.Linux.Bootstrap.Ubuntu'
+        },
+        {
+            label: 'catalog-dmi',
+            taskName: 'Task.Catalog.dmi'
+        },
+        {
+            label: 'catalog-ohai',
+            taskName: 'Task.Catalog.ohai',
+            waitOn: {
+                'catalog-dmi': 'finished'
+            }
+        },
+        {
+            label: 'catalog-bmc',
+            taskName: 'Task.Catalog.bmc',
+            waitOn: {
+                'catalog-ohai': 'finished'
+            },
+            ignoreFailure: true
+        },
+        {
+            label: 'catalog-lsall',
+            taskName: 'Task.Catalog.lsall',
+            waitOn: {
+                'catalog-bmc': 'finished'
+            },
+            ignoreFailure: true
+        },
+        ...
+    ]
+};
+```
+
+* Examples
+  * Compute node discovery: [https://github.com/RackHD/on-taskgraph/blob/master/lib/graphs/discovery-graph.js](https://github.com/RackHD/on-taskgraph/blob/master/lib/graphs/discovery-graph.js)
+  * Management server discovery: [https://github.com/RackHD/on-taskgraph/blob/master/lib/graphs/discovery-mgmt-graph.js](https://github.com/RackHD/on-taskgraph/blob/master/lib/graphs/discovery-mgmt-graph.js)
+  * Pdu discovery: [https://github.com/RackHD/on-taskgraph/blob/master/lib/graphs/pdu-discovery-graph.js](https://github.com/RackHD/on-taskgraph/blob/master/lib/graphs/pdu-discovery-graph.js)
+* Different hardware has different catalogs
+* Different environement generate different catalogs
+* Catalog may be ignored failure
+
+## Catalog Tasks
+
+* Catalog via command:
+
+```javascript
+module.exports = {
+    friendlyName: 'Catalog lsall',
+    injectableName: 'Task.Catalog.lsall',
+    implementsTask: 'Task.Base.Linux.Catalog',
+    options: {
+        commands: [
+            'sudo lspci -nn -vmm',
+            'sudo lshw -json',
+            'sudo lsblk -o KNAME,TYPE,ROTA; echo BREAK; sudo lsscsi --size'
+        ]
+    },
+    properties: {
+        catalog: {
+            type: 'lsall'
+        }
+    }
+};
+```
+
+* Catalog via script
+
+```javascript
+module.exports = {
+    friendlyName: 'Catalog Drive IDs',
+    injectableName: 'Task.Catalog.Drive.Id',
+    implementsTask: 'Task.Base.Linux.Catalog',
+    options: {
+        commands: [
+            {
+                command: 'sudo node get_driveid.js',
+                downloadUrl: '{{ api.templates }}/get_driveid.js?nodeId={{ task.nodeId }}'
+            }
+        ]
+    },
+    properties: {
+        catalog: {
+            type: 'driveId'
+        }
+    }
+};
+```
 
 ## Catalog Job
 
-## 
-
-## Catalog Tasks
+* Remote Catalog: [https://github.com/RackHD/on-tasks/blob/master/lib/jobs/linux-catalog.js](https://github.com/RackHD/on-tasks/blob/master/lib/jobs/linux-catalog.js)
+* Local ipmi catalog: [https://github.com/RackHD/on-tasks/blob/master/lib/jobs/ipmi-catalog.js](https://github.com/RackHD/on-tasks/blob/master/lib/jobs/ipmi-catalog.js)
 
 ## Catalog Parser
 
@@ -18,6 +202,12 @@
 ```javascript
 var dmi = "sudo dmidecode";
 
+
+/**
+ * Input data format:
+ *     data.stdout: The command stdout
+ *     data.error: Indicate whether there is any error while executing the command
+ */
 CommandParser.prototoype[dmi] = function(data) {
     try {
         ... //do something parse
@@ -43,7 +233,7 @@ matchParsers.ipmiUserList = {
 };
 ```
 
-
+## Remote Catalog Procedure
 
 ## Touch Microkernel
 
