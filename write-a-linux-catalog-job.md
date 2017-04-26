@@ -24,7 +24,7 @@ The multiplicity of data that describes the characteristic of a node and its bel
 
 * By sku scope:
 
-  * command catalog
+  * common catalog
   * sku specified \(racadm, redfish, ...\)
 
 ## Catalog Document
