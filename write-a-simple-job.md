@@ -6,11 +6,11 @@
 * RackHD supports customize Task and Workflow.
 * Only one active workflow is allowed for a node.
 
-![](/assets/workflow-task-basetask-job-number-relations.png)
+![](/assets/graph-task-base-job-composition.png)
 
 ## Linkage
 
-![](/assets/graph-task-basetask-job-linkage.png)
+![](/assets/grap-task-basetask-job-linkage.png)
 
 ## Graph Definition
 
@@ -165,7 +165,7 @@ or:
 
 ## Job
 
-Job example:
+* Job example:
 
 ```javascript
 // Copyright 2016, EMC, Inc.
@@ -213,6 +213,10 @@ function conditionJobFactory(
 }
 ```
 
+* Base Job
+* Job utils
+* Pub/Sub API to talk with node
+
 Task example:
 
 ```javascript
@@ -232,8 +236,6 @@ module.exports = {
 ## Task Schema
 
 ## Task Documentation
-
-
 
 # Exercise
 
