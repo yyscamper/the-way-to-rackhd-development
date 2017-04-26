@@ -18,7 +18,7 @@
   * [PXE Boot](unit-testing/pxe-boot.md)
 * [Write a Simple Job](write-a-simple-job.md)
 * [Write a Linux Catalog Task](write-a-linux-catalog-job.md)
-* [Publish New Event](publish-new-event.md)
+* [Publish Poller Event](publish-new-event.md)
 * [Add New Param for OS Installation](add-new-param-for-os-installation.md)
 * [Write a New RackHD API](write-a-new-rackhd-api.md)
 * [RackHD Unit Test](unit-testing.md)

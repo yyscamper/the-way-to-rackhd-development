@@ -11,35 +11,41 @@ Poller is designed to periodically fetching data
 * SNMP poller
 * Poller alert
 * ARP cache poller
-* Service heartbeat poller
-* # Poller Document
 
-  ```javascript
-  {
-    "node": "54daadd764f1a8f1088fdc42",
-    "config": {
-      "command": "power"
-    },
-    "pollInterval": 10000,
-    "lastStarted": null,
-    "lastFinished": null,
-    "failureCount": 0,
-    "createdAt": "2015-02-11T20:50:41.663Z",
-    "updatedAt": "2015-02-11T20:50:41.663Z",
-    "id": "54dbc0a11eaecfc22a30d59b",
-    "type": "ipmi"
-  }
-  ```
+# Poller Document
+
+```javascript
+{
+  "node": "54daadd764f1a8f1088fdc42",
+  "config": {
+    "command": "power"
+  },
+  "pollInterval": 10000,
+  "lastStarted": null,
+  "lastFinished": null,
+  "failureCount": 0,
+  "createdAt": "2015-02-11T20:50:41.663Z",
+  "updatedAt": "2015-02-11T20:50:41.663Z",
+  "id": "54dbc0a11eaecfc22a30d59b",
+  "type": "ipmi"
+}
+```
 
 # Poller Special Design
 
+* poller command parser
+
 * depends on obm setting
+
   * A lot pollers run in out-of-band, they need the node's obm settings.
   * Heartbeat poller doesn't need obm
+  * the credential can also be saved in poller config
 
 * poller cache
+
   * Data is stored in memory rather than database
   * Default cache size=10, but can be configured in config.json via `pollerCacheSize`
+
 * poller failure
   * If poll fails, the next poll interval will be automatically extended.
 
@@ -76,6 +82,10 @@ Periodically check whether a poller fails to poll during the schedulered time wi
 Create a list of poller workItems bases on the input poller configuration.
 
 * Pollers Service Graph: [https://github.com/RackHD/on-taskgraph/blob/7fa4275fd2c704ced42413ead2479eee0f301af3/lib/graphs/poller-service-graph.js](https://github.com/RackHD/on-taskgraph/blob/7fa4275fd2c704ced42413ead2479eee0f301af3/lib/graphs/poller-service-graph.js)
+
+## RackHD Events
+
+![](/assets/rackhd-events.png)
 
 ## Event Classification
 
@@ -155,8 +165,19 @@ Refer to: [http://rackhd.readthedocs.io/en/latest/rackhd/event\_notification.htm
 
 ## Publish Event Channels
 
-* AMQP: Use sniff.js to listen AMQP events
+* AMQP
+  * Event can be published to AMQP, user listens to event by subscribing AMQP
+  * Use [sniff.js](https://github.com/RackHD/on-tools/blob/master/dev_tools/sniff.js) to listen AMQP events
 * Hook
+  * A hook service: Http service which exports RESTful API to accept events
+  * RackHD automatically pushes event to Hook server.
+
+## Event Filter
+
+User can subscribe interested events by defining a filter for event.
+
+* AMQP filter by routing keys: [http://rackhd.readthedocs.io/en/latest/rackhd/event\_notification.html\#amqp-routing-key-filter](http://rackhd.readthedocs.io/en/latest/rackhd/event_notification.html#amqp-routing-key-filter)
+* Hook has filter rules: [http://rackhd.readthedocs.io/en/latest/rackhd/event\_notification.html\#event-filter-rules](http://rackhd.readthedocs.io/en/latest/rackhd/event_notification.html#event-filter-rules)
 
 # Exercise
 
