@@ -12,7 +12,36 @@
 
 ## Catalog Parser
 
-* How to link a task with a parser? Fixed Command String or Regexp Matching
+* How to link a task with a parser?
+* Fixed Parser:
+
+```javascript
+var dmi = "sudo dmidecode";
+
+CommandParser.prototoype[dmi] = function(data) {
+    try {
+        ... //do something parse
+        return Promise.resolve({ source: 'dmi', data: parsedResult, store: true});
+    } catch(err) {
+        return Promise.reject( {source: 'dmi', error: err });
+    }
+```
+
+* Match Parser:
+
+```javascript
+matchParsers.ipmiUserList = {
+    regex: /^sudo ipmitool -c user list \d+$/,
+    parsefunction: function(data) {
+        try {
+            ... //do something parse
+            return Promise.resolve({ source: 'ipmi-user-list', data: parsedResult, store: true});
+        } catch(err) {
+            return Promise.reject( {source: 'ipmi-user-list', error: err });
+        }
+    }
+};
+```
 
 
 
