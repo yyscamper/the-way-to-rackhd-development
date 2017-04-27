@@ -31,7 +31,7 @@
   * [Remote Debugging](debugging/remote-debugging.md)
   * [Debug on Physical Stack](debugging/debug-on-physical-stack.md)
 * [Deep Dive into Source Code](deep-dive-into-source-code.md)
-  * How a Compute Node is Discovered?
+  * [How a Compute Node is Discovered?](deep-dive-into-source-code/how-a-compute-node-is-discovered.md)
   * How to Power Control a Node?
   * How Microkernel Communicates with RackHD?
   * How on-http Talks with on-taskgraph?

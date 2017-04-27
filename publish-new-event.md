@@ -47,6 +47,7 @@ Poller is designed to periodically fetching data
   * Default cache size=10, but can be configured in config.json via `pollerCacheSize`
 
 * poller failure
+
   * If poll fails, the next poll interval will be automatically extended.
 
 # Poller Implementation
@@ -92,6 +93,10 @@ Create a list of poller workItems bases on the input poller configuration.
 * Interval Event: internal pub/sub interfaces \(accross processes or within process\)
 
 * External Event: pub/sub async APIs for user
+
+## PubSub
+
+![](/assets/pubsub-interface.png)
 
 ## External Event Sources
 
