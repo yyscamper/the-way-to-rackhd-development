@@ -1,5 +1,3 @@
-
-
 ## Install OS Sequence
 
 1. Node starts PXE boot
@@ -8,6 +6,10 @@
 4. Node boots installer
 5. Installer download files from OS repository, and install OS into disk
 6. Node sends notification to RackHD to signify installation finishes.
+
+## Profile
+
+![](/assets/road-direction.png) ![](/assets/people-on-steer.png)
 
 ## Kickstart
 
@@ -22,10 +24,6 @@ Notify the OS installation completion during the first boot
 
 * Some OS installation needs multiple reboot, this is a challenge for current RackHD architecture.
 * 
-
-
-
-
 Introduce the OS installation code flow and practice how to do OS installation in RackHD.
 
 **Goals:**
