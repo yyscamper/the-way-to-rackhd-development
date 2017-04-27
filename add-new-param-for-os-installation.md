@@ -33,15 +33,13 @@ boot || prompt --key 0x197e --timeout 2000 Press F12 to investigate || exit shel
 * A kind of file containing the answers to all the questions that would normally be asked during a typical intsallation.
 * A mechnism of automated/unattended installation
 
-## Callback
+## OS Callback
 
 Notify the OS installation completion during the first boot
 
 ## Challenge
 
 * Some OS installation needs multiple reboot, this is a challenge for current RackHD architecture.
-
-
 
 ---
 
