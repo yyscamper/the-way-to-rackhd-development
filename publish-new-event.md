@@ -96,6 +96,8 @@ Create a list of poller workItems bases on the input poller configuration.
 
 ## PubSub
 
+![](/assets/sell-hotdog.png)
+
 ![](/assets/pubsub-interface.png)
 
 ## External Event Sources

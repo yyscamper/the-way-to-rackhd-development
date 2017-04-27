@@ -32,10 +32,52 @@ boot || prompt --key 0x197e --timeout 2000 Press F12 to investigate || exit shel
 
 * A kind of file containing the answers to all the questions that would normally be asked during a typical intsallation.
 * A mechnism of automated/unattended installation
+* Some OS don't call it `kickstart`
+* Kickstart reference
+  * CentOS: [https://www.centos.org/docs/5/html/Installation\_Guide-en-US/ch-kickstart2.html](https://www.centos.org/docs/5/html/Installation_Guide-en-US/ch-kickstart2.html)
+  * Redhat: [https://access.redhat.com/documentation/en-US/Red\_Hat\_Enterprise\_Linux/5/html/Installation\_Guide/ch-kickstart2.html](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/5/html/Installation_Guide/ch-kickstart2.html)
+  * ESXi: [https://kb.vmware.com/selfservice/microsites/search.do?language=en\_US&cmd=displayKC&externalId=2004582](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2004582)
+  * SUSE: [http://users.suse.com/~ug/autoyast\_doc/index.html](http://users.suse.com/~ug/autoyast_doc/index.html)
+  * Ubuntu: [https://help.ubuntu.com/lts/installation-guide/i386/ch04s06.html](https://help.ubuntu.com/lts/installation-guide/i386/ch04s06.html)
 
 ## OS Callback
 
-Notify the OS installation completion during the first boot
+* Notify the OS installation completion during the first boot
+* Find the right point where OS installation is really completed.
+* The callback only call a simple RackHD notification API
+* The callback script will be deleted after notification
+
+The callback script for centos:
+
+```bash
+set -e
+echo "Attempting to call back to RackHD CentOS installer"
+wget --retry-connrefused --waitretry=1 -t 300 --post-data '{"nodeId":"<%=nodeId%>"}' --header='Content-Type:application/json' http://<%=server%>:<%=port%>/api/current/notification
+# Only run this once to verify the OS was installed, then disable it forever
+chkconfig centos.rackhdcallback off
+```
+
+## PubSub Style
+
+A simple version of install os job:
+
+```javascript
+InstallOsJob.prototype._run = function() {
+    var self = this;
+
+    self._subscribeRequestProfile(function() {
+        return self.profile;
+    });
+
+    self._subscribeRequestProperties(function() {
+        return self.options;
+    });
+
+    self._subscribeNodeNotification(self.nodeId, function(data) {
+        return self._done();
+    });
+};
+```
 
 ## Challenge
 
