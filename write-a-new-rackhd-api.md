@@ -25,11 +25,11 @@
   | GET | Read | Used for retrieving resources |
   | POST | Create | Used for creating resources |
   | PATCH | Update | Used for updateing resources with partial data. PATCH is a relatively new and uncommon HTTP verb, so resource endpoints also accept POST request. |
-  | PUT | Update\(Replace\) | Used for replacing resources or collections |
+  | PUT | Update or Insert | Used for replacing resources or collections |
   | DELETE | Delete | Used for deleting resources |
   | OPTIONS |  | Get which methods are allowed for specified resource. |
-
 * Safe & Idempotent
+
   * Safe: The request will not change server's state whenever or how many you send the request.
   * Idempotent\(幂等性\): The result is always same no matter how many time you send the request.
   * GET/HEAD is safe
