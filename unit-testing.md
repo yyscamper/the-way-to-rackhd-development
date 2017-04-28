@@ -1,6 +1,7 @@
 ## What's Unit Testing
 
-An unit test is a piece of code written by a developer that exercises a very small, specific area of functionality of the code being tested.
+An unit test is a piece of code written by a developer that exercises a very  
+ small, specific area of functionality of the code being tested.
 
 * An unit could be a module or more commonly a function or procedure, a class or an
 * interface.
@@ -44,7 +45,7 @@ An unit test is a piece of code written by a developer that exercises a very sm
 
 * npm test
 * ./HWMIO-TEST
-* TravisCI
+* TravisCI: [https://travis-ci.org/RackHD/on-tasks/jobs/226356050](https://travis-ci.org/RackHD/on-tasks/jobs/226356050)
 
 ## Unit Testing Technical Stack
 
@@ -67,6 +68,17 @@ An unit test is a piece of code written by a developer that exercises a very sm
   * on-core: [https://github.com/RackHD/on-core/blob/master/spec/helper.js](https://github.com/RackHD/on-core/blob/master/spec/helper.js)
   * on-tasks: [https://github.com/RackHD/on-tasks/blob/master/spec/helper.js](https://github.com/RackHD/on-tasks/blob/master/spec/helper.js)
   * on-http: [https://github.com/RackHD/on-http/blob/master/spec/helper.js](https://github.com/RackHD/on-http/blob/master/spec/helper.js)
+
+
+
+## Dependency Injection in Unit Testing
+
+* stub all di module
+* stub a function of di module.
+
+## Unit Testing Coverage
+
+* Coverall: [https://coveralls.io/builds/11266957/source?filename=lib%2Futils%2Fjob-utils%2Fipmi-parser.js](https://coveralls.io/builds/11266957/source?filename=lib%2Futils%2Fjob-utils%2Fipmi-parser.js)
 
 ---
 
@@ -97,6 +109,4 @@ Introduce the framework and tool sets of RackHD unit-testing.
 **Extends:**
 
 \(1\)Read the source code chai, sinon.
-
-deJ����
 
