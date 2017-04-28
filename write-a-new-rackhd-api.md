@@ -6,11 +6,36 @@
 
 ## RESTful Design Pattern
 
-* Resource based API structure \(noun vs. verb\)
-* Resource linkage with single root API
+* Key Points:
+  * **R**epresentation **S**tate **T**ransfer
+  * Resource oriented
+  * Uniform interface
+  * Resource linkage with single root API
+  * Stateless communication
+* URI
+  * Universal Resource Identifier
+  * Each resource should be allocated an URI
+  * One URI should only map to only one resource \(unique\)
+  * Different URI may map to the same resource \(latest version and v2.0\)
 * HTTP Verb
-* Safe \(GET, HEAD\)
-* Idempotent \(幂等性\): \(GET/PUT/PATCH/DELETE/HEAD, exception: POST\)
+
+* | Verb | CRUD | Description |
+  | :--- | :--- | :--- |
+  | HEAD |  | Can be issued against any resource to get just the HTTP header info \(Metadata\) |
+  | GET | Read | Used for retrieving resources |
+  | POST | Create | Used for creating resources |
+  | PATCH | Update | Used for updateing resources with partial data. PATCH is a relatively new and uncommon HTTP verb, so resource endpoints also accept POST request. |
+  | PUT | Update\(Replace\) | Used for replacing resources or collections |
+  | DELETE | Delete | Used for deleting resources |
+  | OPTIONS |  | Get which methods are allowed for specified resource. |
+
+* Safe & Idempotent
+  * Safe: The request will not change server's state whenever or how many you send the request.
+  * Idempotent\(幂等性\): The result is always same no matter how many time you send the request.
+  * GET/HEAD is safe
+  * GET/HEAD/PUT/PATCH/DELETE is idempotent
+  * POST is neither safe nor idempotent
+  * Why safe & idempotent is important? Image you request is timeout, you are trying...
 
 ## API Framework
 
@@ -48,16 +73,15 @@
 
 ## HTTP Proxy
 
-
-
 ## Special Design
 
 * HTTP event middleware: [https://github.com/RackHD/on-http/blob/master/lib/services/http-service.js\#L346](https://github.com/RackHD/on-http/blob/master/lib/services/http-service.js#L346)
+
   * Log every request
 
   * Distinguish different nodes
 
-  * `uuid` for HTTP request: Distinguish the same http request from different nodes, see [https://github.com/RackHD/on-http/blob/master/lib/services/http-service.js\#L350](https://github.com/RackHD/on-http/blob/master/lib/services/http-service.js#L350) 
+  * `uuid` for HTTP request: Distinguish the same http request from different nodes, see [https://github.com/RackHD/on-http/blob/master/lib/services/http-service.js\#L350](https://github.com/RackHD/on-http/blob/master/lib/services/http-service.js#L350)
 
   * Skupack scope
 
@@ -70,8 +94,6 @@
 * httpie
 * postman
 * jq
-
-
 
 ---
 
