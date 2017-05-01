@@ -32,10 +32,10 @@
   * [Debug on Physical Stack](debugging/debug-on-physical-stack.md)
 * [Deep Dive into Source Code](deep-dive-into-source-code.md)
   * [How a Compute Node is Discovered?](deep-dive-into-source-code/how-a-compute-node-is-discovered.md)
-  * How to Power Control a Node?
-  * How Microkernel Communicates with RackHD?
+  * [How to Power Control a Node?](deep-dive-into-source-code/how-to-power-control-a-node.md)
+  * [How Microkernel Communicates with RackHD?](deep-dive-into-source-code/how-microkernel-communicates-with-rackhd.md)
   * How on-http Talks with on-taskgraph?
-  * How RackHD Talks with Database?
+  * [How RackHD Talks with Database?](deep-dive-into-source-code/how-rackhd-talks-with-database.md)
   * How an OS is Installed by RackHD?
   * How the Poller is Created and Scheduled?
   * How the Workflow is Registered and Scheduled?
