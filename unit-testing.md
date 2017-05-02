@@ -71,8 +71,6 @@ An unit test is a piece of code written by a developer that exercises a very
 * builtin script: [https://github.com/RackHD/on-http/blob/master/spec/data/templates/get\_driveid-spec.js](https://github.com/RackHD/on-http/blob/master/spec/data/templates/get_driveid-spec.js)
 * grpc style code: 
 
-
-
 ## spec/helper.js
 
 * Shared by all tests
@@ -87,6 +85,7 @@ An unit test is a piece of code written by a developer that exercises a very
 ## Dependency Injection in Unit Testing
 
 * Modules injection
+
   * `helper.js` has helped to inject all on-core modules
   * the `helper.js` in on-http has helped to injecto all api related modules 
   * other modules need you inject it manually
@@ -117,6 +116,7 @@ sinon.spy(progressService, 'publishTaskProgress');
 
 * Coverall: [https://coveralls.io/builds/11266957/source?filename=lib%2Futils%2Fjob-utils%2Fipmi-parser.js](https://coveralls.io/builds/11266957/source?filename=lib%2Futils%2Fjob-utils%2Fipmi-parser.js)
 * Coverage types
+
   * file coverage
 
   * function coverage
@@ -160,8 +160,6 @@ max(4, 3, 2, 1);
 * Random testing order
 * timeout control
 * Which level to inject stub
-
-
 
 ---
 
