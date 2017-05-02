@@ -58,6 +58,21 @@ An unit test is a piece of code written by a developer that exercises a very
 * Test coverage: istanbul/coveralls
 * Unit test CI: TravisCI/Jenkins
 
+## Typical Unit Testing Example
+
+* A standalone module: [https://github.com/RackHD/on-core/blob/master/spec/lib/common/encryption-spec.js](https://github.com/RackHD/on-core/blob/master/spec/lib/common/encryption-spec.js)
+* parser: [https://github.com/RackHD/on-tasks/blob/master/spec/lib/utils/job-utils/command-parser-spec.js](https://github.com/RackHD/on-tasks/blob/master/spec/lib/utils/job-utils/command-parser-spec.js)
+* job: [https://github.com/RackHD/on-tasks/blob/master/spec/lib/jobs/install-os-spec.js](https://github.com/RackHD/on-tasks/blob/master/spec/lib/jobs/install-os-spec.js)
+* task definition: [https://github.com/RackHD/on-tasks/blob/master/spec/lib/task-data/tasks/analyze-esx-repo-spec.js](https://github.com/RackHD/on-tasks/blob/master/spec/lib/task-data/tasks/analyze-esx-repo-spec.js)
+* graph definition: [https://github.com/RackHD/on-taskgraph/blob/master/spec/lib/graphs/install-centos-graph-spec.js](https://github.com/RackHD/on-taskgraph/blob/master/spec/lib/graphs/install-centos-graph-spec.js)
+* task schema: [https://github.com/RackHD/on-tasks/blob/master/spec/lib/task-data/schemas/get-catalog-values-spec.js](https://github.com/RackHD/on-tasks/blob/master/spec/lib/task-data/schemas/get-catalog-values-spec.js)
+* http API: [https://github.com/RackHD/on-http/blob/master/spec/lib/api/2.0/hooks-spec.js](https://github.com/RackHD/on-http/blob/master/spec/lib/api/2.0/hooks-spec.js)
+* database model: [https://github.com/RackHD/on-core/blob/master/spec/lib/models/node-spec.js](https://github.com/RackHD/on-core/blob/master/spec/lib/models/node-spec.js)
+* builtin script: [https://github.com/RackHD/on-http/blob/master/spec/data/templates/get\_driveid-spec.js](https://github.com/RackHD/on-http/blob/master/spec/data/templates/get_driveid-spec.js)
+* grpc style code: 
+
+
+
 ## spec/helper.js
 
 * Shared by all tests
@@ -69,16 +84,84 @@ An unit test is a piece of code written by a developer that exercises a very
   * on-tasks: [https://github.com/RackHD/on-tasks/blob/master/spec/helper.js](https://github.com/RackHD/on-tasks/blob/master/spec/helper.js)
   * on-http: [https://github.com/RackHD/on-http/blob/master/spec/helper.js](https://github.com/RackHD/on-http/blob/master/spec/helper.js)
 
-
-
 ## Dependency Injection in Unit Testing
 
-* stub all di module
-* stub a function of di module.
+* Modules injection
+  * `helper.js` has helped to inject all on-core modules
+  * the `helper.js` in on-http has helped to injecto all api related modules 
+  * other modules need you inject it manually
+
+* Replace the whole of a di module
+
+```javascript
+var waterline = {};
+helper.setupInjector([
+    helper.di.simpleWrapper(waterline, 'Services.Waterline');
+]);
+
+//Then feel free to add function for any function for the mocked objects
+waterline.nodes = {
+    updateByIdentifier: sinon.stub().resolves(),
+    needByIdentifier: sinon.stub().resolves()
+};
+```
+
+* spy a function of di module.
+
+```javascript
+var progressService = helper.injector.get('Services.GraphProgress');
+sinon.spy(progressService, 'publishTaskProgress');
+```
 
 ## Unit Testing Coverage
 
 * Coverall: [https://coveralls.io/builds/11266957/source?filename=lib%2Futils%2Fjob-utils%2Fipmi-parser.js](https://coveralls.io/builds/11266957/source?filename=lib%2Futils%2Fjob-utils%2Fipmi-parser.js)
+* Coverage types
+  * file coverage
+
+  * function coverage
+
+  * line coverage
+
+```js
+function max(x, y) {
+    return x > y ? x : y;
+}
+
+max(1, 2);
+```
+
+* branch coverage
+
+```js
+function max(x, y) {
+    return x > y ? x : y;
+}
+
+max(1, 2)
+max(2, 1)
+```
+
+* path coverage
+
+```javascript
+function max(a, b, c, d) {
+    let x = a > b ? a : b;
+    let y = c > d ? c : d;
+    return x > y ? x : y
+}
+
+max(1, 2, 3, 4);
+max(4, 3, 2, 1);
+```
+
+## Misc
+
+* Random testing order
+* timeout control
+* Which level to inject stub
+
+
 
 ---
 
