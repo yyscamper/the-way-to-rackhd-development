@@ -34,7 +34,7 @@
   * [How a Compute Node is Discovered?](deep-dive-into-source-code/how-a-compute-node-is-discovered.md)
   * [How to Power Control a Node?](deep-dive-into-source-code/how-to-power-control-a-node.md)
   * [How Microkernel Communicates with RackHD?](deep-dive-into-source-code/how-microkernel-communicates-with-rackhd.md)
-  * How on-http Talks with on-taskgraph?
+  * [How on-http Talks with on-taskgraph?](deep-dive-into-source-code/how-on-http-talks-with-on-taskgraph.md)
   * [How RackHD Talks with Database?](deep-dive-into-source-code/how-rackhd-talks-with-database.md)
   * How an OS is Installed by RackHD?
   * How the Poller is Created and Scheduled?
