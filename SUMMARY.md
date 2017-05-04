@@ -32,6 +32,7 @@
   * [Debug on Physical Stack](debugging/debug-on-physical-stack.md)
 * [Deep Dive into Source Code](deep-dive-into-source-code.md)
   * [How a Compute Node is Discovered?](deep-dive-into-source-code/how-a-compute-node-is-discovered.md)
+  * [Options Schema](deep-dive-into-source-code/task-schema.md)
   * [How to Power Control a Node?](deep-dive-into-source-code/how-to-power-control-a-node.md)
   * [How Microkernel Communicates with RackHD?](deep-dive-into-source-code/how-microkernel-communicates-with-rackhd.md)
   * [How on-http Talks with on-taskgraph?](deep-dive-into-source-code/how-on-http-talks-with-on-taskgraph.md)
