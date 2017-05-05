@@ -14,11 +14,7 @@ Refer to: [https://spacetelescope.github.io/understanding-json-schema/   ](https
 
 ## Direct Schema & File Referernce Schema
 
-
-
 ## Upfront Validation
-
-
 
 ## Task Annotation
 
@@ -37,7 +33,8 @@ Performance comparision: [https://github.com/ebdrup/json-schema-benchmark](https
 
 ## Source Code for Options Schema Validation
 
-* Call entry in TaskGraph.create: 
+* Call entry in TaskGraph.create:
+
   * [https://github.com/RackHD/on-tasks/blob/master/lib/task-graph.js\#L603](https://github.com/RackHD/on-tasks/blob/master/lib/task-graph.js#L603)
   * [https://github.com/RackHD/on-tasks/blob/master/lib/task-graph.js\#L333](https://github.com/RackHD/on-tasks/blob/master/lib/task-graph.js#L333)
 
